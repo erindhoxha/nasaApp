@@ -60,10 +60,10 @@
   <script id="planet-template" type="text/x-handlebars-template">
 
     {{#each items}}
-    <div class="card" style="width: 18rem;">
+    <div class="card m-2" style="width: 18rem;">
         {{#each links}}
           {{#if href}}
-        <img class="card-img-top" src={{href}} alt="Card image cap">
+          <img class="card-img-top" src={{href}} alt="Card image cap">
           {{/if}}
         {{/each}}
         <div class="card-body">
