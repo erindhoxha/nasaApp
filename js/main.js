@@ -28,20 +28,26 @@ $.ajax({
 });
 
 $("#search").on('click', function(e) {
-    location.replace(`facts.html?id=${searchedValue}`)
-    var pageURL = new URL(document.location);
-    var params = pageURL.searchParams;
-    var id = params.get('id');
+        var searchedValue = $("#search-input").val();
+        // location.replace(`facts.html?id=${searchedValue}`)
+        var pageURL = new URL(document.location);
+        var params = pageURL.searchParams;
+        var id = params.get('id');
+        var url = "https://images-api.nasa.gov/search?q=";
+        console.log(id);
 
-    var url = "https://images-api.nasa.gov/search?q=";
-    var searchedValue = $("#search-input").val();
-    fetch(`${url}${searchedValue}`)
-    .then((response) => response.json())
-    .then((jsonresponse) => {
-        console.log(jsonresponse);
-        var response = jsonresponse.collection.items;
-        console.log(response);
-    });
+        fetch(`${url}${id}`)
+        .then((response) => response.json())
+        .then((jsonresponse) => {
+            var response = jsonresponse.collection;
+            console.log(response);
+            Handlebars.registerHelper('listFirstThree', function (context, options) { var ret = ""; for (var i = 0, j = 3; i < j; i++) { ret = ret + options.fn(context[i]); } return ret; });
+            var source   = document.getElementById("planet-template").innerHTML;
+            var template = Handlebars.compile(source);
+            var context = (response);
+            var html    = template(context);
+            $("#facts").html(html);
+        });
 
 })
 

@@ -43,32 +43,39 @@
         </div>
       </nav>
 
-    <div class="container text-center" id="facts">
+    <div class="container text-center text-black" >
+      <div class="row" id="facts">
+
+      </div>
     </div>
 
   <script src="js/vendor/modernizr-3.6.0.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
   <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.1/handlebars.js"></script>
+  <script src="js/main.js"></script>
 
-  <script id="entry-template" type="text/x-handlebars-template">
-    <div class="entry">
-      <h1>{{title}}</h1>
-      <div class="body">
-        {{body}}
+  <script id="planet-template" type="text/x-handlebars-template">
+
+    {{#each items}}
+    <div class="card" style="width: 18rem;">
+        {{#each links}}
+          {{#if href}}
+        <img class="card-img-top" src={{href}} alt="Card image cap">
+          {{/if}}
+        {{/each}}
+        <div class="card-body">
+    {{#each data}}
+          <h5 class="card-title">{{title}}</h5>
+          <p class="card-text">Date created: {{date_created}}</p>
+          <p class="card-text">{{description}}</p>
+    {{/each}}
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
       </div>
-    </div>
-  </script>
-
-  <script>
-  var source   = document.getElementById("entry-template").innerHTML;
-  var template = Handlebars.compile(source);
-  var context = {title: "My New Post", body: "This is my first post!"};
-  var html    = template(context);
-  $("#facts").html(html);
+  {{/each}}
   </script>
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
   <script>
