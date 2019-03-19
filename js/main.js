@@ -27,23 +27,29 @@ $.ajax({
 }
 });
 var clicked = false;
+var sentFromOtherPage;
+var itsFactsPage;
 $("#search").on('click', function(e) {
+        if ($("#facts").length == 0) {
+            window.location.href = 'facts.html';
+            sentFromOtherPage = true;
+        }
 
-        var searchedValue = $("#search-input").val();
-        var url = "https://images-api.nasa.gov/search?q=";
-        console.log(searchedValue);
-
-        fetch(`${url}${searchedValue}`)
-        .then((response) => response.json())
-        .then((jsonresponse) => {
-            var response = jsonresponse.collection;
-            console.log(response);
-            var source   = document.getElementById("planet-template").innerHTML;
-            var template = Handlebars.compile(source);
-            var context = (response);
-            var html    = template(context);
-            $("#facts").html(html);
-        });
+            var searchedValue = $("#search-input").val();
+            var url = "https://images-api.nasa.gov/search?q=";
+            console.log(searchedValue);
+    
+            fetch(`${url}${searchedValue}`)
+            .then((response) => response.json())
+            .then((jsonresponse) => {
+                var response = jsonresponse.collection;
+                console.log(response);
+                var source   = document.getElementById("planet-template").innerHTML;
+                var template = Handlebars.compile(source);
+                var context = (response);
+                var html    = template(context);
+                $("#facts").html(html);
+            });
 })
 
 

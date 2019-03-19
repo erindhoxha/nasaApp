@@ -84,7 +84,8 @@ textarea {
   .nav-spec .navbar-brand {
     color: white; }
   .nav-spec ul li a {
-    color: white; }
+    color: white;
+    font-size: 17px; }
 
 .logo {
   width: 80px; }
