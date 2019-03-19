@@ -20,7 +20,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg nav-spec">
-        <a class="navbar-brand" href="#">Group Project</a>
+        <a class="navbar-brand" href="#">Adopt-A-Dog</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -33,11 +33,12 @@
           </ul>
         </div>
       </nav>
+      <header id="banner">
+        <select id="container">
+        </select>
+      </header>
       <div class="container">
-        <button>Dane</button>
-        <button>Ella</button>
-        <button>Heathe</button>
-        <a href="adoptDog.html"><button>Erind</button></a>
+
       </div>
   <!--[if lte IE 9]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
@@ -48,7 +49,7 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
   <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/AdoptADog.js"></script>
   <script src="js/bootstrap.min.js"></script>
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
@@ -56,6 +57,18 @@
     window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
     ga('create', 'UA-XXXXX-Y', 'auto'); ga('send', 'pageview')
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.1/handlebars.js"></script>
+
+  <script id="entry-template" type="text/x-handlebars-template">
+      {{#each this}}
+      <option>{{this}}</option>
+      {{/each}}
+  </script>
+
+  <script>
+
+  </script>
+
   <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 </body>
 
