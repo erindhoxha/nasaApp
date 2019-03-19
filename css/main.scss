@@ -17,6 +17,9 @@
     font-size: 1em;
     line-height: 1.4;
 }
+body {
+    background-color:black;
+}
 
 /*
  * Remove text-shadow in selection highlight:
@@ -114,16 +117,9 @@ textarea {
     background-color: black;
 }
 
-#banner {
-    background-image:url('../img/adopt-dog-img.jpeg');
-    height:60vh;
-    background-position: center center;
-    background-size:cover;
-    display:flex;
-    justify-content: center;
-    align-items: center;
+.logo {
+    width:80px;
 }
-
 
 
 
