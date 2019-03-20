@@ -11,7 +11,7 @@ if (searchClicked == "true") {
   var searchedValue = params.get('search');
   var url = "https://images-api.nasa.gov/search?q=";
   console.log(searchedValue);
-  $("body").append('<h1>Loading..</h1>');
+  
   fetch(`${url}${searchedValue}`)
     .then((response) => response.json())
     .then((jsonresponse) => {
