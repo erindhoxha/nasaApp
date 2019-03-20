@@ -84,7 +84,6 @@
       return false;
     }
 
-
     //Slick Slider
     $(document).ready(function(){
       $('.planet-slider').slick({
