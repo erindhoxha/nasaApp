@@ -42,4 +42,25 @@
       document.getElementById("myBtn").click();
     }
   });
-    
+
+    theToggle.onclick = function () {
+      toggleClass(this, 'on');
+      return false;
+    }
+
+    //Slick Slider
+    $(document).ready(function(){
+      $('.planet-slider').slick({
+          infinite: true,
+          centerMode: true,
+          centerPadding: '25%',
+          responsive: [
+            {
+              breakpoint: 1024,
+              settings: {
+                centerPadding: '0%',
+              }
+            }
+          ]
+        });
+    });
