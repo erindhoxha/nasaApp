@@ -166,10 +166,9 @@ ERINDS STYLES FOR FACTS.HTML
 .slider-container {
   display: flex;
   font-size: 0;
-  animation: slideshow 30s linear infinite;
-  opacity: 0.8;
+  animation: slideshow 120s linear infinite;
+  opacity: 0.2;
 }
-
 .slider-img {
   width: var(--imgW);
   height: var(--imgH);
