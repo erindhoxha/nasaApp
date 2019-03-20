@@ -11,18 +11,8 @@
         searchClicked = true;
         console.log(searchClicked);
     })
-
-
     var carousel = $(".carousel"),
       currdeg = 0;
-
-    $(".next").on("click", {
-      d: "n"
-    }, rotate);
-    $(".prev").on("click", {
-      d: "p"
-    }, rotate);
-
     function rotate(e) {
       if (e.data.d == "n") {
         currdeg = currdeg - 60;
@@ -37,44 +27,19 @@
         "transform": "rotateY(" + currdeg + "deg)"
       });
     }
-
     // NAV BAR
 
+  // Get the input field
+  var input = document.getElementById("#search");
 
-    var theToggle = document.getElementById('toggle');
-
-    // based on Todd Motto functions
-    // https://toddmotto.com/labs/reusable-js/
-
-    // hasClass
-    function hasClass(elem, className) {
-      return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
+  // Execute a function when the user releases a key on the keyboard
+  input.addEventListener("keyup", function(event) {
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+      // Cancel the default action, if needed
+      event.preventDefault();
+      // Trigger the button element with a click
+      document.getElementById("myBtn").click();
     }
-    // addClass
-    function addClass(elem, className) {
-      if (!hasClass(elem, className)) {
-        elem.className += ' ' + className;
-      }
-    }
-    // removeClass
-    function removeClass(elem, className) {
-      var newClass = ' ' + elem.className.replace(/[\t\r\n]/g, ' ') + ' ';
-      if (hasClass(elem, className)) {
-        while (newClass.indexOf(' ' + className + ' ') >= 0) {
-          newClass = newClass.replace(' ' + className + ' ', ' ');
-        }
-        elem.className = newClass.replace(/^\s+|\s+$/g, '');
-      }
-    }
-    // toggleClass
-    function toggleClass(elem, className) {
-      var newClass = ' ' + elem.className.replace(/[\t\r\n]/g, " ") + ' ';
-      if (hasClass(elem, className)) {
-        while (newClass.indexOf(" " + className + " ") >= 0) {
-          newClass = newClass.replace(" " + className + " ", " ");
-        }
-        elem.className = newClass.replace(/^\s+|\s+$/g, '');
-      } else {
-        elem.className += ' ' + className;
-      }
-    }
+  });
+    

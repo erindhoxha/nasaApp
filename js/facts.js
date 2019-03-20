@@ -25,7 +25,7 @@ if (searchClicked == "true") {
       $(".loading-container").css('visibility','hidden');
     });
 } else {
-  var url = "https://images-api.nasa.gov/search?q=mars";
+  var url = "https://images-api.nasa.gov/search?q=pluto";
   fetch(`${url}`)
     .then((response) => response.json())
     .then((jsonresponse) => {
@@ -36,7 +36,7 @@ if (searchClicked == "true") {
       var context = (response);
       var html = template(context);
       $("#facts").html(html);
-$(".loading-container").css('visibility','visible');
+    $(".loading-container").css('visibility','hidden');
     });
 }
 
