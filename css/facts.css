@@ -20,15 +20,15 @@ ERINDS STYLES FOR FACTS.HTML
 
 .st3 {
   position: relative;
-  -webkit-animation: mymoveRed 1s;
+  -webkit-animation: mymoveRed 0.5s;
   /* Safari 4.0 - 8.0 */
-  animation: mymoveRed 1s; }
+  animation: mymoveRed 0.5s; }
 
 .st2, .st1 {
   position: relative;
-  -webkit-animation: mymove 1s;
+  -webkit-animation: mymove 0.5s;
   /* Safari 4.0 - 8.0 */
-  animation: mymove 1s; }
+  animation: mymove 0.5s; }
 
 @keyframes mymove {
   from {
