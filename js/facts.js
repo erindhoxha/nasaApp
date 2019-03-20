@@ -1,28 +1,5 @@
 
 var url = "https://api.nasa.gov/planetary/apod?api_key=gdboBB95GZvKSjHc4gj10IOwU8jqJIaRv5XuuDjg";
-$.ajax({
-  url: url,
-  success: function (result) {
-    console.log
-    if ("copyright" in result) {
-      $("#copyright").text("Image Credits: " + result.copyright);
-    } else {
-      $("#copyright").text("Image Credits: " + "Public Domain");
-    }
-
-    if (result.media_type == "video") {
-      $("#apod_img_id").css("display", "none");
-      $("#apod_vid_id").attr("src", result.url);
-    } else {
-      $("#apod_vid_id").css("display", "none");
-      $("#apod_img_id").attr("src", result.url);
-    }
-    $("#reqObject").text(url);
-    $("#returnObject").text(JSON.stringify(result, null, 4));
-    $("#apod_explaination").text(result.explanation);
-    $("#apod_title").text(result.title);
-  }
-});
   var pageURL = new URL(document.location);
   var params = pageURL.searchParams;
   var searchedValue = params.get('searched');
@@ -34,7 +11,7 @@ if (searchClicked == "true") {
   var searchedValue = params.get('search');
   var url = "https://images-api.nasa.gov/search?q=";
   console.log(searchedValue);
-
+  $("body").append('<h1>Loading..</h1>');
   fetch(`${url}${searchedValue}`)
     .then((response) => response.json())
     .then((jsonresponse) => {

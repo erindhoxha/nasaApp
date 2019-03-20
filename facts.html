@@ -14,18 +14,16 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/main.css">
-
   <meta name="theme-color" content="#fafafa">
 </head>
-
 <body>
+
     <nav class="navbar navbar-expand-lg nav-spec">
         <a class="navbar-brand" href="#">NASA</a>
         <img class="logo" src="img/nasa-logo.png">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-      
         <div class="collapse navbar-collapse" id="navbarsExample05">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
@@ -38,14 +36,34 @@
               <a class="nav-link" href="#">Facts <span class="sr-only">(current)</span></a>
             </li>
           </ul>
-          <input type="search" id="search-input">
-          <button id='search'>Search</button>
+
+        <svg style="display: none">
+          <symbol id="magnify" viewBox="0 0 18 18" height="100%" width="100%">
+            <path d="M12.5 11h-.8l-.3-.3c1-1.1 1.6-2.6 1.6-4.2C13 2.9 10.1 0          6.5 0S0 2.9 0 6.5 2.9 13 6.5 13c1.6 0 3.1-.6 4.2-1.6l.3.3v.8l5 5          1.5-1.5-5-5zm-6 0C4 11 2 9 2 6.5S4 2 6.5 2 11 4 11 6.5 9 11 6.5            11z"
+              fill="#fff" fill-rule="evenodd" />
+          </symbol>
+        </svg>
+
+        <div class="search-bar">
+
+          <input type="text" class="input" id="search-input" placeholder="&nbsp;">
+          <span class="label">Name</span>
+          <span class="highlight"></span>
+          <div class="search-btn" id="search">
+            <svg class="icon icon-18">
+              <use xlink:href="#magnify"></use>
+            </svg>
+          </div>
+        </div>
+        </div>
+
+
         </div>
       </nav>
 
     <div class="container text-center text-black" >
-      <div class="row" id="facts">
-
+      <div class="row text-center" id="facts">
+        <!-- MY HANDLEBARS RENDER HERE -->
       </div>
     </div>
 
@@ -59,23 +77,22 @@
   <script src="js/facts.js"></script>  
 
   <script id="planet-template" type="text/x-handlebars-template">
-
-    {{#each items}}
+  {{#each items}}
     <div class="card m-2" style="width: 18rem;">
         {{#each links}}
           {{#if href}}
-          <img class="card-img-top" src={{href}} alt="Card image cap">
+            <img class="card-img-top" src={{href}} alt="Card image cap">
           {{/if}}
         {{/each}}
         <div class="card-body">
-    {{#each data}}
-          <h5 class="card-title">{{title}}</h5>
-          <p class="card-text">Date created: {{date_created}}</p>
-          <p class="card-text">{{description}}</p>
-    {{/each}}
+          {{#each data}}
+            <h5 class="card-title">{{title}}</h5>
+            <p class="card-text">Date created: {{date_created}}</p>
+            <p class="card-text">{{description}}</p>
+          {{/each}}
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
-      </div>
+    </div>
   {{/each}}
   </script>
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->

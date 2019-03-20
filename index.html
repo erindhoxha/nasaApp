@@ -20,12 +20,8 @@
 
 <body>
     <nav class="navbar navbar-expand-lg nav-spec">
-        <a class="navbar-brand" href="#">NASA</a>
         <img class="logo" src="img/nasa-logo.png">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
+        <a href="#menu" id="toggle"  data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation"><span></span></a>
         <div class="collapse navbar-collapse" id="navbarsExample05">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
@@ -38,14 +34,53 @@
               <a class="nav-link" href="facts.html">Facts <span class="sr-only">(current)</span></a>
             </li>
           </ul>
-          <input type="search" id="search-input">
-          <button id='search'>Search</button>
+
+
+        <svg style="display: none">
+          <symbol id="magnify" viewBox="0 0 18 18" height="100%" width="100%">
+            <path d="M12.5 11h-.8l-.3-.3c1-1.1 1.6-2.6 1.6-4.2C13 2.9 10.1 0          6.5 0S0 2.9 0 6.5 2.9 13 6.5 13c1.6 0 3.1-.6 4.2-1.6l.3.3v.8l5 5          1.5-1.5-5-5zm-6 0C4 11 2 9 2 6.5S4 2 6.5 2 11 4 11 6.5 9 11 6.5            11z"
+              fill="#fff" fill-rule="evenodd" />
+          </symbol>
+        </svg>
+        <div class="search-bar">
+          <input type="text" class="input" id="search-input" placeholder="&nbsp;">
+          <span class="highlight"></span>
+          <div class="search-btn" id="search">
+            <svg class="icon icon-18">
+              <use xlink:href="#magnify"></use>
+            </svg>
+          </div>
+        </div>
+        </div>
         </div>
       </nav>
 
-    <div class="container text-center">
-      <img src="img/planet.png" alt="">
-    </div>
+      <!-- CAROUSEL IDEA -->
+
+<div class="box">
+  <div class="container-fluid container-slider">
+      <div class="slider-container">
+        <img src="img/planet.png" alt="chicken" style="height:300px; width:300px" class="slider-img">
+        <img src="img/planet.png" alt="chicken" style="height:100px; width:100px" class="slider-img">
+        <img src="img/planet.png" alt="chicken" style="height:200px; width:200px" class="slider-img">
+        <img src="img/planet.png" alt="chicken" style="height:400px; width:400px" class="slider-img">
+        <img src="img/planet.png" alt="chicken" style="height:200px; width:200px" class="slider-img">
+        <img src="img/planet.png" alt="chicken" style="height:250px; width:250px" class="slider-img">
+        <img src="img/planet.png" alt="chicken" style="height:320px; width:320px" class="slider-img">
+        <img src="img/planet.png" alt="chicken" style="height:440px; width:440px" class="slider-img">
+        <img src="img/planet.png" alt="chicken" style="height:320px; width:320px" class="slider-img">
+        <img src="img/planet.png" alt="chicken" style="height:225px; width:225px" class="slider-img">
+        <img src="img/planet.png" alt="chicken" style="height:123px; width:123px" class="slider-img">
+        <img src="img/planet.png" alt="chicken" style="height:320px; width:320px" class="slider-img">
+        <img src="img/planet.png" alt="chicken" style="height:421px; width:421px" class="slider-img">
+        <img src="img/planet.png" alt="chicken" style="height:521px; width:521px" class="slider-img">
+        <img src="img/planet.png" alt="chicken" style="height:123px; width:123px" class="slider-img">
+        <img src="img/planet.png" alt="chicken" style="height:444px; width:444px" class="slider-img">
+        <img src="img/planet.png" alt="chicken" style="height:320px; width:320px" class="slider-img">
+      </div>
+  </div>
+</div>
+
   <script src="js/vendor/modernizr-3.6.0.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
