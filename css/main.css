@@ -167,7 +167,7 @@ ERINDS STYLES FOR FACTS.HTML
   display: flex;
   font-size: 0;
   animation: slideshow 30s linear infinite;
-  opacity: 0.01;
+  opacity: 0.8;
 }
 
 .slider-img {
