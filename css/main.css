@@ -9,12 +9,8 @@
   --numOfListA: 10;
   --imgW: 140px;
   --imgH: var(--imgW);
-  --mBetweenImg: 50px;
-}
+  --mBetweenImg: 50px; }
 
-/* ==========================================================================
-ERINDS STYLES FOR FACTS.HTML
-========================================================================== */
 #facts {
   justify-content: center;
   margin-top: 50px;
@@ -248,13 +244,11 @@ ERINDS STYLES FOR FACTS.HTML
 html {
   color: #222;
   font-size: 1em;
-  line-height: 1.4;
-}
+  line-height: 1.4; }
 
 body {
   background-color: black;
-  font-family: "Merriweather", "Montserrat";
-}
+  font-family: "Merriweather", "Montserrat"; }
 
 /*
  * Remove text-shadow in selection highlight:
@@ -267,8 +261,7 @@ body {
  */
 ::selection {
   background: #b3d4fc;
-  text-shadow: none;
-}
+  text-shadow: none; }
 
 /*
  * A better looking default horizontal rule
@@ -279,8 +272,7 @@ hr {
   border: 0;
   border-top: 1px solid #ccc;
   margin: 1em 0;
-  padding: 0;
-}
+  padding: 0; }
 
 /*
  * Remove the gap between audio, canvas, iframes,
@@ -293,8 +285,7 @@ iframe,
 img,
 svg,
 video {
-  vertical-align: middle;
-}
+  vertical-align: middle; }
 
 /*
  * Remove default fieldset styles.
@@ -302,15 +293,13 @@ video {
 fieldset {
   border: 0;
   margin: 0;
-  padding: 0;
-}
+  padding: 0; }
 
 /*
  * Allow only vertical resizing of textareas.
  */
 textarea {
-  resize: vertical;
-}
+  resize: vertical; }
 
 /* ==========================================================================
    Browser Upgrade Prompt
@@ -319,26 +308,21 @@ textarea {
   margin: 0.2em 0;
   background: #ccc;
   color: #000;
-  padding: 0.2em 0;
-}
+  padding: 0.2em 0; }
 
 /* ==========================================================================
   Author's custom styles
   ========================================================================== */
 .nav-spec {
-  background-color: black;
-}
-.nav-spec .navbar-brand {
-  color: white;
-}
-.nav-spec ul li a {
-  color: white;
-  font-size: 17px;
-}
+  background-color: black; }
+  .nav-spec .navbar-brand {
+    color: white; }
+  .nav-spec ul li a {
+    color: white;
+    font-size: 17px; }
 
 .logo {
-  width: 80px;
-}
+  width: 80px; }
 
 /* ==========================================================================
   Helper classes
@@ -347,8 +331,7 @@ textarea {
  * Hide visually and from screen readers
  */
 .hidden {
-  display: none !important;
-}
+  display: none !important; }
 
 /*
 * Hide only visually, but have it available for screen readers:
@@ -368,8 +351,7 @@ textarea {
   position: absolute;
   width: 1px;
   white-space: nowrap;
-  /* 1 */
-}
+  /* 1 */ }
 
 /*
 * Extends the .visuallyhidden class to allow the element
@@ -384,15 +366,13 @@ textarea {
   overflow: visible;
   position: static;
   width: auto;
-  white-space: inherit;
-}
+  white-space: inherit; }
 
 /*
 * Hide visually and from screen readers, but maintain layout
 */
 .invisible {
-  visibility: hidden;
-}
+  visibility: hidden; }
 
 /*
 * Clearfix: contain floats
@@ -410,12 +390,10 @@ textarea {
   content: " ";
   /* 1 */
   display: table;
-  /* 2 */
-}
+  /* 2 */ }
 
 .clearfix:after {
-  clear: both;
-}
+  clear: both; }
 
 /* ==========================================================================
    EXAMPLE Media Queries for Responsive Design.
@@ -423,11 +401,9 @@ textarea {
    Modify as content requires.
    ========================================================================== */
 @media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
-}
+  /* Style adjustments for viewports that meet the condition */ }
 @media print, (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 1.25dppx), (min-resolution: 120dpi) {
-  /* Style adjustments for high resolution devices */
-}
+  /* Style adjustments for high resolution devices */ }
 /* ==========================================================================
    Print styles.
    Inlined to avoid the additional HTTP request:
@@ -435,72 +411,60 @@ textarea {
    ========================================================================== */
 @media print {
   *,
-*:before,
-*:after {
+  *:before,
+  *:after {
     background: transparent !important;
     color: #000 !important;
     /* Black prints faster */
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
-    text-shadow: none !important;
-  }
+    text-shadow: none !important; }
 
   a,
-a:visited {
-    text-decoration: underline;
-  }
+  a:visited {
+    text-decoration: underline; }
 
   a[href]:after {
-    content: " (" attr(href) ")";
-  }
+    content: " (" attr(href) ")"; }
 
   abbr[title]:after {
-    content: " (" attr(title) ")";
-  }
+    content: " (" attr(title) ")"; }
 
   /*
    * Don't show links that are fragment identifiers,
    * or use the `javascript:` pseudo protocol
    */
   a[href^="#"]:after,
-a[href^="javascript:"]:after {
-    content: "";
-  }
+  a[href^="javascript:"]:after {
+    content: ""; }
 
   pre {
-    white-space: pre-wrap !important;
-  }
+    white-space: pre-wrap !important; }
 
   pre,
-blockquote {
+  blockquote {
     border: 1px solid #999;
-    page-break-inside: avoid;
-  }
+    page-break-inside: avoid; }
 
   /*
    * Printing Tables:
    * http://css-discuss.incutio.com/wiki/Printing_Tables
    */
   thead {
-    display: table-header-group;
-  }
+    display: table-header-group; }
 
   tr,
-img {
-    page-break-inside: avoid;
-  }
+  img {
+    page-break-inside: avoid; }
 
   p,
-h2,
-h3 {
+  h2,
+  h3 {
     orphans: 3;
-    widows: 3;
-  }
+    widows: 3; }
 
   h2,
-h3 {
-    page-break-after: avoid;
-  }
-}
+  h3 {
+    page-break-after: avoid; } }
 
 /*# sourceMappingURL=main.css.map */
