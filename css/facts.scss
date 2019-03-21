@@ -57,15 +57,45 @@ ERINDS STYLES FOR FACTS.HTML
     min-height:600px;
     overflow:hidden;
     background-color:transparent;
-    border:1px solid $nasaCol;
+    border: 1px solid rgba(255,255,255,0.2);
     color:white;
+    padding:10px;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #464646; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $nasaCol; 
+  border-bottom-left-radius:50px;
+  border-bottom-right-radius: 50px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $nasaCol; 
 }
 .card-body {
-    overflow:auto;
+  height: 100%;
+  overflow-y: scroll;
+  box-sizing: content-box;
+  padding-top:20px;
+}
+.see-more-btn {
+  background-color:$nasaCol;
+  color:white;
+  border-radius:0px;
 }
 .card-img-top {
-    max-height:300px;
-    min-height:300px;
+    max-height:250px;
+    min-height:250px;
 }
 .search-bar {
   height: 44px;
