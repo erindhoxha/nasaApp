@@ -1,19 +1,21 @@
 /*CSS for Home Page planet slider*/
 .planet-slider {
 	position: absolute;
-	top: -10%;
+	top: 0;
 	left: 0;
 	width: 100%;
 	z-index: 10;
 }
 
 .planet-container {
+	outline: none;
 }
 
 .planet-image {
 	width: 60%;
 	display: block;
 	margin: auto;
+	cursor: pointer;
 }
 
 .planet-container h1 {
@@ -24,6 +26,7 @@
 .slick-prev, .slick-next {
 	opacity: 0;
 	background: none;
+	cursor: pointer;
 }
 
 .slick-prev {
