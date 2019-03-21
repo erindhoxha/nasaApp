@@ -161,7 +161,6 @@
         <div class="search-bar">
 
           <input type="text" class="input" id="search-input" placeholder="&nbsp;">
-          <span class="label">Name</span>
           <span class="highlight"></span>
           <div class="search-btn" id="search">
             <svg class="icon icon-18">
@@ -170,8 +169,6 @@
           </div>
         </div>
         </div>
-
-
         </div>
       </nav>
 
@@ -179,10 +176,11 @@
       <div class="row text-center" id="facts">
         <!-- MY HANDLEBARS RENDER HERE -->
       </div>
+      <button class="see-more">See more</button>
     </div>
 
     <!-- Modal -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="factsModal" aria-hidden="true">
+<div class="modal fade" id="factsModal" tabindex="-1" role="dialog" aria-labelledby="factsModal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -212,10 +210,10 @@
 
   <script id="planet-template" type="text/x-handlebars-template">
   {{#each items}}
-    <div class="card m-2 card-link" style="width: 18rem;">
+    <div class="card m-2 {{@index}} card-link" id="{{@index}}" style="width: 18rem;">
         {{#each links}}
           {{#if href}}
-            <img class="card-img-top" src={{href}} alt="Card image cap">
+            <img class="card-img-top" src="{{href}}" alt="Card image cap">
           {{/if}}
         {{/each}}
         <div class="card-body">

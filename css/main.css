@@ -9,252 +9,16 @@
   --numOfListA: 10;
   --imgW: 140px;
   --imgH: var(--imgW);
-  --mBetweenImg: 50px;
-}
+  --mBetweenImg: 50px; }
 
-/* ==========================================================================
-ERINDS STYLES FOR FACTS.HTML
-========================================================================== */
-#facts {
-  justify-content: center;
-  margin-top: 50px;
-}
-
-#search-input {
-  border: none;
-  height: 40px;
-  border-radius: 15px;
-}
-
-.card.m-2 {
-  height: 100%;
-  max-height: 600px;
-  min-height: 600px;
-  overflow: hidden;
-  background-color: transparent;
-  border: 1px solid #0b3d91;
-  color: white;
-}
-
-.card-body {
-  overflow: auto;
-}
-
-.card-img-top {
-  max-height: 300px;
-  min-height: 300px;
-}
-
-.search-bar {
-  height: 44px;
-  width: 280px;
-  border-radius: 40px;
-  display: flex;
-  align-items: center;
-  padding: 0 0 0 20px;
-  position: relative;
-  background: #fff;
-}
-
-.input {
-  border: none;
-  height: 25px;
-  width: 150px;
-  color: #1b1b1b;
-  font-size: 15px;
-  outline: none;
-}
-
-.input:not(:placeholder-shown) + .label {
-  font-size: 9px;
-  top: 3px;
-  color: #F94144;
-}
-
-.input:focus ~ .label {
-  font-size: 9px;
-  top: 3px;
-  color: #0b3d91;
-  transition: all 0.5s ease;
-}
-
-.label {
-  color: #aaaaaa;
-  position: absolute;
-  top: 13px;
-  pointer-events: none;
-  transition: all 0.5s ease;
-}
-
-.search-btn {
-  background: #0b3d91;
-  border-radius: 20px;
-  height: 40px;
-  min-width: 40px;
-  display: flex;
-  align-items: center;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  justify-content: center;
-  cursor: pointer;
-  right: 2px;
-  position: absolute;
-  transition: all 1s ease;
-}
-
-.icon {
-  display: inline-flex;
-}
-
-.icon-18 {
-  width: 18px;
-  height: 18px;
-}
-
-.highlight {
-  width: 0px;
-  height: 1px;
-  background: #4279a3;
-  position: absolute;
-  bottom: 8px;
-  transition: all 1s ease;
-}
-
-.input:focus ~ .highlight {
-  width: 150px;
-  transition: all 1s ease;
-}
-
-.container-new {
-  margin-top: calc(50vh - 70px);
-  overflow: hidden;
-}
-
-.div {
-  background-color: white;
-  z-index: 999999999;
-  width: 5000px;
-  height: 500px;
-}
-
-.container-slider {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow-x: hidden;
-}
-
-.title {
-  color: black;
-  text-align: center;
-  z-index: 9999999;
-}
-
-.box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  overflow-x: hidden;
-}
-
-@media screen and (min-width: 900px) {
-  :root {
-    --imgW: 180px;
-  }
-}
-.slider-container {
-  display: flex;
-  font-size: 0;
-  animation: slideshow 120s linear infinite;
-  opacity: 0.2;
-}
-.slider-img {
-  width: var(--imgW);
-  height: var(--imgH);
-}
-
-.slider-img + .slider-img {
-  margin-left: var(--mBetweenImg);
-}
-
-@keyframes slideshow {
-  100% {
-    transform: translateX(calc((var(--numOfListA) * var(--imgW) + var(--mBetweenImg) * var(--numOfListA)) * -1));
-  }
-}
-/* Important styles */
-#toggle {
-  display: block;
-  width: 28px;
-  height: 30px;
-  margin: 10px 0px 0px 0px;
-}
-
-#toggle span:after,
-#toggle span:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: -9px;
-}
-
-#toggle span:after {
-  top: 9px;
-}
-
-#toggle span {
-  position: relative;
-  display: block;
-}
-
-#toggle span,
-#toggle span:after,
-#toggle span:before {
-  width: 100%;
-  height: 5px;
-  background-color: #0b3d91;
-  transition: all 0.3s;
-  backface-visibility: hidden;
-  border-radius: 2px;
-}
-
-/* on activation */
-#toggle.on span {
-  background-color: transparent;
-}
-
-#toggle.on span:before {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-#toggle.on span:after {
-  transform: rotate(-45deg) translate(7px, -8px);
-}
-
-#toggle.on + #menu {
-  opacity: 1;
-  visibility: visible;
-}
-
-@media only screen and (min-width: 1024px) {
-  #toggle {
-    display: none;
-  }
-}
-/* ==========================================================================
-ERINDS STYLES FOR FACTS.HTML
-========================================================================== */
 html {
   color: #222;
   font-size: 1em;
-  line-height: 1.4;
-}
+  line-height: 1.4; }
 
 body {
   background-color: black;
-  font-family: "Merriweather", "Montserrat";
-}
+  font-family: "Merriweather", "Montserrat"; }
 
 /*
  * Remove text-shadow in selection highlight:
@@ -267,8 +31,7 @@ body {
  */
 ::selection {
   background: #b3d4fc;
-  text-shadow: none;
-}
+  text-shadow: none; }
 
 /*
  * A better looking default horizontal rule
@@ -279,8 +42,7 @@ hr {
   border: 0;
   border-top: 1px solid #ccc;
   margin: 1em 0;
-  padding: 0;
-}
+  padding: 0; }
 
 /*
  * Remove the gap between audio, canvas, iframes,
@@ -293,8 +55,7 @@ iframe,
 img,
 svg,
 video {
-  vertical-align: middle;
-}
+  vertical-align: middle; }
 
 /*
  * Remove default fieldset styles.
@@ -302,15 +63,13 @@ video {
 fieldset {
   border: 0;
   margin: 0;
-  padding: 0;
-}
+  padding: 0; }
 
 /*
  * Allow only vertical resizing of textareas.
  */
 textarea {
-  resize: vertical;
-}
+  resize: vertical; }
 
 /* ==========================================================================
    Browser Upgrade Prompt
@@ -319,26 +78,21 @@ textarea {
   margin: 0.2em 0;
   background: #ccc;
   color: #000;
-  padding: 0.2em 0;
-}
+  padding: 0.2em 0; }
 
 /* ==========================================================================
   Author's custom styles
   ========================================================================== */
 .nav-spec {
-  background-color: black;
-}
-.nav-spec .navbar-brand {
-  color: white;
-}
-.nav-spec ul li a {
-  color: white;
-  font-size: 17px;
-}
+  background-color: black; }
+  .nav-spec .navbar-brand {
+    color: white; }
+  .nav-spec ul li a {
+    color: white;
+    font-size: 17px; }
 
 .logo {
-  width: 80px;
-}
+  width: 80px; }
 
 /* ==========================================================================
   Helper classes
@@ -347,8 +101,7 @@ textarea {
  * Hide visually and from screen readers
  */
 .hidden {
-  display: none !important;
-}
+  display: none !important; }
 
 /*
 * Hide only visually, but have it available for screen readers:
@@ -368,8 +121,7 @@ textarea {
   position: absolute;
   width: 1px;
   white-space: nowrap;
-  /* 1 */
-}
+  /* 1 */ }
 
 /*
 * Extends the .visuallyhidden class to allow the element
@@ -384,15 +136,13 @@ textarea {
   overflow: visible;
   position: static;
   width: auto;
-  white-space: inherit;
-}
+  white-space: inherit; }
 
 /*
 * Hide visually and from screen readers, but maintain layout
 */
 .invisible {
-  visibility: hidden;
-}
+  visibility: hidden; }
 
 /*
 * Clearfix: contain floats
@@ -410,12 +160,10 @@ textarea {
   content: " ";
   /* 1 */
   display: table;
-  /* 2 */
-}
+  /* 2 */ }
 
 .clearfix:after {
-  clear: both;
-}
+  clear: both; }
 
 /* ==========================================================================
    EXAMPLE Media Queries for Responsive Design.
@@ -423,11 +171,9 @@ textarea {
    Modify as content requires.
    ========================================================================== */
 @media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
-}
+  /* Style adjustments for viewports that meet the condition */ }
 @media print, (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 1.25dppx), (min-resolution: 120dpi) {
-  /* Style adjustments for high resolution devices */
-}
+  /* Style adjustments for high resolution devices */ }
 /* ==========================================================================
    Print styles.
    Inlined to avoid the additional HTTP request:
@@ -435,72 +181,60 @@ textarea {
    ========================================================================== */
 @media print {
   *,
-*:before,
-*:after {
+  *:before,
+  *:after {
     background: transparent !important;
     color: #000 !important;
     /* Black prints faster */
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
-    text-shadow: none !important;
-  }
+    text-shadow: none !important; }
 
   a,
-a:visited {
-    text-decoration: underline;
-  }
+  a:visited {
+    text-decoration: underline; }
 
   a[href]:after {
-    content: " (" attr(href) ")";
-  }
+    content: " (" attr(href) ")"; }
 
   abbr[title]:after {
-    content: " (" attr(title) ")";
-  }
+    content: " (" attr(title) ")"; }
 
   /*
    * Don't show links that are fragment identifiers,
    * or use the `javascript:` pseudo protocol
    */
   a[href^="#"]:after,
-a[href^="javascript:"]:after {
-    content: "";
-  }
+  a[href^="javascript:"]:after {
+    content: ""; }
 
   pre {
-    white-space: pre-wrap !important;
-  }
+    white-space: pre-wrap !important; }
 
   pre,
-blockquote {
+  blockquote {
     border: 1px solid #999;
-    page-break-inside: avoid;
-  }
+    page-break-inside: avoid; }
 
   /*
    * Printing Tables:
    * http://css-discuss.incutio.com/wiki/Printing_Tables
    */
   thead {
-    display: table-header-group;
-  }
+    display: table-header-group; }
 
   tr,
-img {
-    page-break-inside: avoid;
-  }
+  img {
+    page-break-inside: avoid; }
 
   p,
-h2,
-h3 {
+  h2,
+  h3 {
     orphans: 3;
-    widows: 3;
-  }
+    widows: 3; }
 
   h2,
-h3 {
-    page-break-after: avoid;
-  }
-}
+  h3 {
+    page-break-after: avoid; } }
 
 /*# sourceMappingURL=main.css.map */
