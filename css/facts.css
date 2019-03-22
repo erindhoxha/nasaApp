@@ -210,6 +210,16 @@ ERINDS STYLES FOR FACTS.HTML
   min-height: 222px;
 }
 
+.planet-image-facts {
+  width: 100%;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.planet-image-facts:hover {
+  transform: scale(1.1);
+}
+
 .search-bar {
   height: 44px;
   width: 280px;
