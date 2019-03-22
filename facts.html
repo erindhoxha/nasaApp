@@ -134,20 +134,20 @@
   </div>
 
     <nav class="navbar navbar-expand-lg nav-spec">
-        <a href="index.html"><img class="logo" src="img/nasa-logo.png"></a>
+        <a href="/"><img class="logo" src="img/nasa-logo.png"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarsExample05">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="#">Asteroids <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="asteroids.html">Asteroids <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="#">Facts <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="facts.html">Facts <span class="sr-only">(current)</span></a>
             </li>
           </ul>
 
@@ -171,7 +171,25 @@
         </div>
         </div>
       </nav>
-
+      <div class="slider-container style-slider-for-facts">
+        <img src="img/planet.png" alt="chicken" style="height:300px; width:300px" class="slider-img">
+        <img src="img/asteroid.png" alt="chicken" style="height:100px; width:100px" class="slider-img">
+        <img src="img/asteroid2.png" alt="chicken" style="height:200px; width:200px" class="slider-img">
+        <img src="img/asteroid.png" alt="chicken" style="height:400px; width:400px" class="slider-img">
+        <img src="img/asteroid2.png" alt="chicken" style="height:200px; width:200px" class="slider-img">
+        <img src="img/asteroid2.png" alt="chicken" style="height:250px; width:250px" class="slider-img">
+        <img src="img/planet.png" alt="chicken" style="height:320px; width:320px" class="slider-img">
+        <img src="img/asteroid.png" alt="chicken" style="height:440px; width:440px" class="slider-img">
+        <img src="img/asteroid.png" alt="chicken" style="height:320px; width:320px" class="slider-img">
+        <img src="img/asteroid.png" alt="chicken" style="height:225px; width:225px" class="slider-img">
+        <img src="img/planet.png" alt="chicken" style="height:123px; width:123px" class="slider-img">
+        <img src="img/asteroid2.png" alt="chicken" style="height:320px; width:320px" class="slider-img">
+        <img src="img/asteroid.png" alt="chicken" style="height:421px; width:421px" class="slider-img">
+        <img src="img/asteroid2.png" alt="chicken" style="height:521px; width:521px" class="slider-img">
+        <img src="img/asteroid.png" alt="chicken" style="height:123px; width:123px" class="slider-img">
+        <img src="img/asteroid2.png" alt="chicken" style="height:444px; width:444px" class="slider-img">
+        <img src="img/asteroid.png" alt="chicken" style="height:320px; width:320px" class="slider-img">
+      </div>
     <div class="container text-center text-black" >
       <div class="row text-center" id="facts">
         <!-- MY HANDLEBARS RENDER HERE -->
@@ -210,7 +228,7 @@
 
   <script id="planet-template" type="text/x-handlebars-template">
   {{#each items}}
-    <div class="card m-2 {{@index}} card-link" id="{{@index}}" style="width: 18rem;">
+    <div class="card m-2 {{@index}} card-link" id="{{@index}}" style="width: 21rem;">
         {{#each links}}
           {{#if href}}
             <img class="card-img-top" src="{{href}}" alt="Card image cap">

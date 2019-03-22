@@ -7,7 +7,15 @@ $fontFamily: 'Merriweather', 'Montserrat';
   --imgH: var(--imgW);
   --mBetweenImg: 50px; 
 }
-
+.slider-container.style-slider-for-facts {
+  position:fixed;
+  opacity:0.1;
+  display:flex;
+  height:100%;
+  align-content: center;
+  align-items: center;
+  z-index:-1;
+}
 /* ==========================================================================
 ERINDS STYLES FOR FACTS.HTML
 ========================================================================== */
@@ -21,26 +29,100 @@ ERINDS STYLES FOR FACTS.HTML
     justify-content: center;
     svg {
         width:200px;
+            -webkit-animation: spin 0.2s;
+            /* Safari 4.0 - 8.0 */
+            animation: spin 0.5s ease-in-out;
+    }
+}
+.st0 {
+  position:relative !important;
+  -webkit-animation: opaque 1s ease-in-out !important;
+  animation: opaque 0.8s ease-out !important;
+}
+@keyframes opaque {
+  from {
+    opacity:0;
+  }
+
+  to {
+    opacity:1;
+  }
+}
+@-ms-keyframes spin {
+    from { 
+      -ms-transform: rotate(0deg);
+    }
+    to { -ms-transform: rotate(360deg); }
+}
+@-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
     }
 }
 .st3 {
     position :relative;
     -webkit-animation: mymoveRed 0.5s; /* Safari 4.0 - 8.0 */
-    animation: mymoveRed 0.5s;  
+    animation: mymoveRed 0.5s ease-in-out;  
+}
+.st0 {
+  position:relative;
+  -webkit-animation: gravity infinite; /* Safari 4.0 - 8.0 */
+  animation: gravity infinite;  
 }
 .st2, .st1 {
     position :relative;
     -webkit-animation: mymove 0.5s; /* Safari 4.0 - 8.0 */
-    animation: mymove 0.5s;
+    animation: mymove 0.5s ease-in-out;
   }
 
 @keyframes mymove {
-    from {transform:translateX(500px)}
-    to {transform:translateX(00px)}
+    from {
+
+      transform: translateY(200px);
+      transform: translateX(200px);
+
+    }
+
+    to {
+
+      transform: translateY(0px);
+      transform: translateX(0px);
+
+    }
 }
 @keyframes mymoveRed {
-    from {transform:translateY(-200px)}
-    to {transform:translateY(0px)}
+    from {
+      
+      transform:translateY(-200px);
+      transform:translateX(-200px);
+    
+    }
+    to {
+      
+      transform:translateY(0px);
+      transform:translateX(0px);
+    
+    }
+}
+@keyframes gravity {
+    from {
+      transform:translateY(400px);
+      transform:translateX(-200px);
+    }
+    to {
+      transform:translateY(0px);
+      transform:translateX(0px);    }
 }
 #facts {
     justify-content: center;
@@ -95,6 +177,7 @@ ERINDS STYLES FOR FACTS.HTML
   color:white;
   border:none;
   padding:10px 20px;
+  z-index:9;
 }
 .card-body {
   height: 100%;
