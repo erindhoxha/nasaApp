@@ -101,3 +101,7 @@ function hideExtraImages() {
     $(".modal-center").text(`${response.items[dataNr].data[0].center}`)
   }
 // ERINDS CODE FOR FACTS
+
+$(".planet-image-facts").on('click', function() {
+  console.log($(this).attr('value'));
+})
