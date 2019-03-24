@@ -1,6 +1,6 @@
 $(".loading-container").css('visibility','visible');
 var dataNr;
-
+$(".rick-morty-spaceship-div").hide();
 var url = "https://api.nasa.gov/planetary/apod?api_key=gdboBB95GZvKSjHc4gj10IOwU8jqJIaRv5XuuDjg";
   var pageURL = new URL(document.location);
   var params = pageURL.searchParams;
@@ -103,6 +103,9 @@ function hideExtraImages() {
 // ERINDS CODE FOR FACTS
 
 $(".planet-image-facts").on('click', function() {
+  if ($(this).attr('valueOfPlanet') == "RickMorty") {
+    $(".rick-morty-spaceship-div").show();
+  }
   $(".loading-container").fadeIn();
   setTimeout(() => {
     $(".loading-container").fadeOut();
