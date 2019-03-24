@@ -4,42 +4,134 @@
   --imgH: var(--imgW);
   --mBetweenImg: 50px; }
 
+.slider-container.style-slider-for-facts {
+  position: fixed;
+  opacity: 0.15;
+  display: flex;
+  height: 100%;
+  align-content: center;
+  align-items: center;
+  z-index: -1; }
+
+.modal-img {
+  width: 100%; }
+
+.rick-morty-spaceship-div {
+  top: -200px;
+  width: 200px;
+  position: absolute;
+  -webkit-animation: rickSpaceship 4s infinite;
+  /* Safari 4.0 - 8.0 */
+  animation: rickSpaceship 4s ease-in;
+  z-index: 999; }
+  .rick-morty-spaceship-div img {
+    width: 100%; }
+
+@keyframes rickSpaceship {
+  0% {
+    top: -200px;
+    left: 0px; }
+  25% {
+    top: 400px;
+    left: 0px; }
+  100% {
+    top: 400px;
+    left: 100%; } }
+.modal-body h6 {
+  padding: 10px;
+  border: 1px solid white; }
+.modal-body p {
+  margin: 0;
+  padding: 0; }
+
 /* ==========================================================================
 ERINDS STYLES FOR FACTS.HTML
 ========================================================================== */
 .loading-container {
   width: 100%;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   z-index: 99999;
+  background-color: rgba(0, 0, 0, 0.7);
+  transition: 0.3s ease-in;
   display: flex;
   align-items: center;
   justify-content: center; }
   .loading-container svg {
-    width: 200px; }
+    width: 200px;
+    -webkit-animation: spin 0.2s;
+    /* Safari 4.0 - 8.0 */
+    animation: spin 0.5s ease-in-out; }
 
+.st0 {
+  position: relative !important;
+  -webkit-animation: opaque 1s ease-in-out !important;
+  animation: opaque 0.8s ease-out !important; }
+
+@keyframes opaque {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@-ms-keyframes spin {
+  from {
+    -ms-transform: rotate(0deg); }
+  to {
+    -ms-transform: rotate(360deg); } }
+@-moz-keyframes spin {
+  from {
+    -moz-transform: rotate(0deg); }
+  to {
+    -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg); } }
+@keyframes spin {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
 .st3 {
   position: relative;
   -webkit-animation: mymoveRed 0.5s;
   /* Safari 4.0 - 8.0 */
-  animation: mymoveRed 0.5s; }
+  animation: mymoveRed 0.5s ease-in-out; }
+
+.st0 {
+  position: relative;
+  -webkit-animation: gravity infinite;
+  /* Safari 4.0 - 8.0 */
+  animation: gravity infinite; }
 
 .st2, .st1 {
   position: relative;
   -webkit-animation: mymove 0.5s;
   /* Safari 4.0 - 8.0 */
-  animation: mymove 0.5s; }
+  animation: mymove 0.5s ease-in-out; }
 
 @keyframes mymove {
   from {
-    transform: translateX(500px); }
+    transform: translateY(200px);
+    transform: translateX(200px); }
   to {
+    transform: translateY(0px);
     transform: translateX(0px); } }
 @keyframes mymoveRed {
   from {
-    transform: translateY(-200px); }
+    transform: translateY(-200px);
+    transform: translateX(-200px); }
   to {
-    transform: translateY(0px); } }
+    transform: translateY(0px);
+    transform: translateX(0px); } }
+@keyframes gravity {
+  from {
+    transform: translateY(400px);
+    transform: translateX(-200px); }
+  to {
+    transform: translateY(0px);
+    transform: translateX(0px); } }
 #facts {
   justify-content: center;
   margin-top: 50px; }
@@ -87,7 +179,8 @@ ERINDS STYLES FOR FACTS.HTML
   background-color: #0b3d91;
   color: white;
   border: none;
-  padding: 10px 20px; }
+  padding: 10px 20px;
+  z-index: 9; }
 
 .card-body {
   height: 100%;
@@ -102,7 +195,15 @@ ERINDS STYLES FOR FACTS.HTML
 
 .card-img-top {
   max-height: 250px;
-  min-height: 250px; }
+  min-height: 222px; }
+
+.planet-image-facts {
+  width: 100%;
+  transition: 0.3s ease;
+  cursor: pointer; }
+
+.planet-image-facts:hover {
+  transform: scale(1.1); }
 
 .search-bar {
   height: 44px;

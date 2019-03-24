@@ -11,11 +11,33 @@
 	outline: none;
 }
 
+.planet-container h1 {
+	text-transform: capitalize;
+	opacity: 0;
+	transition: 0.55s ease all;
+}
+
 .planet-image {
 	width: 60%;
 	display: block;
 	margin: auto;
 	cursor: pointer;
+	filter: brightness(0.4);
+	transform: scale(0.7);
+	transition: 0.55s ease all;
+}
+
+.planet-image:hover {
+	transform: scale(1.03);
+}
+
+.slick-current img {
+	filter: none;
+	transform: scale(1);
+}
+
+.slick-current h1 {
+	opacity: 1;
 }
 
 .planet-container h1 {
