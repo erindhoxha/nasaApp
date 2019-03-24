@@ -99,6 +99,5 @@ function hideExtraImages() {
     $(".modal-nasa-id").text(`${response.items[dataNr].data[0].nasa_id}`)
     $(".modal-secondary-creator").text(`${response.items[dataNr].data[0].secondary_creator}`)
     $(".modal-center").text(`${response.items[dataNr].data[0].center}`)
-
   }
 // ERINDS CODE FOR FACTS
