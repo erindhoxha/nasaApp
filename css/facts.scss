@@ -16,6 +16,19 @@ $fontFamily: 'Merriweather', 'Montserrat';
   align-items: center;
   z-index:-1;
 }
+.modal-img {
+  width:100%;
+}
+.modal-body {
+  h6 {
+    padding:10px;
+    border:1px solid white;
+  }
+  p {
+    margin:0;
+    padding:0;
+  }
+}
 /* ==========================================================================
 ERINDS STYLES FOR FACTS.HTML
 ========================================================================== */
