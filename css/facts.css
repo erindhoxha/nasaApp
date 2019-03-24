@@ -20,9 +20,9 @@
   top: -200px;
   width: 200px;
   position: absolute;
-  -webkit-animation: rickSpaceship 2s infinite;
+  -webkit-animation: rickSpaceship 4s infinite;
   /* Safari 4.0 - 8.0 */
-  animation: rickSpaceship 2s ease-in;
+  animation: rickSpaceship 4s ease-in;
   z-index: 999; }
   .rick-morty-spaceship-div img {
     width: 100%; }
