@@ -103,5 +103,31 @@ function hideExtraImages() {
 // ERINDS CODE FOR FACTS
 
 $(".planet-image-facts").on('click', function() {
+  $(".loading-container").fadeIn();
+  setTimeout(() => {
+    $(".loading-container").fadeOut();
+  }, 1000);
   console.log($(this).attr('value'));
+  var searchedVal = $(this).attr('value');
+  var url = "https://images-api.nasa.gov/search?q=";
+  fetch(`${url}${searchedVal}`)
+    .then((response) => response.json())
+    .then((jsonresponse) => {
+      response = jsonresponse.collection;
+      console.log(response);
+      var source = document.getElementById("planet-template").innerHTML;
+      var template = Handlebars.compile(source);
+      var context = (response);
+      var html = template(context);
+      $("#facts").html(html);
+      $(".loading-container").fadeOut();
+      $(".see-more").css('visibility','visible');
+      $(".card").slice(6,100).hide();
+      hideExtraImages();
+      $(".see-more-btn").on('click', function() {
+        dataNr = $(this).attr('data-nr');
+        console.log(dataNr);
+        getResponse()
+      })
+    });
 })
