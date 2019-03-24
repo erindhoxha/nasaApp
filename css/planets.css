@@ -22,7 +22,7 @@
 	display: block;
 	margin: auto;
 	cursor: pointer;
-	filter: brightness(0.3);
+	filter: brightness(0.4);
 	transform: scale(0.7);
 	transition: 0.55s ease all;
 }
