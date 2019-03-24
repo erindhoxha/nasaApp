@@ -30,6 +30,15 @@ $fontFamily: 'Merriweather', 'Montserrat';
   animation: rickSpaceship 4s ease-in;
   z-index:999;
 }
+.span-planet {
+  background-color:rgba(25, 0, 248, 0.2);
+  color:white;
+  padding:10px;
+  font-size:14px;
+  text-align:center;
+  visibility:hidden;
+  margin-top:10px;
+}
 
 @keyframes rickSpaceship {
   0%   {top: -200px; left: 0px;}
@@ -227,6 +236,9 @@ ERINDS STYLES FOR FACTS.HTML
     max-height:250px;
     min-height:222px;
 }
+.planet-slider-facts {
+  margin-top:50px;
+}
 .planet-image-facts {
   width:100%;
   transition:0.3s ease;
@@ -421,3 +433,44 @@ ERINDS STYLES FOR FACTS.HTML
 /* ==========================================================================
 ERINDS STYLES FOR FACTS.HTML
 ========================================================================== */
+
+
+#myInput {
+  background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+  background-position: 10px 12px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 100%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+}
+
+#myUL {
+  /* Remove default list styling */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  position:absolute;
+  top:45px;
+  width:270px;
+  z-index:9;
+  right:3px;
+}
+#myUL li {
+  display:none;
+}
+
+#myUL li a {
+  border: 1px solid #ddd; /* Add a border to all links */
+  background-color: #f6f6f6; /* Grey background color */
+  text-decoration: none; /* Remove default text underline */
+  font-size: 15px; /* Increase the font-size */
+  padding:15px;
+  color: black; /* Add a black text color */
+  display: block; /* Make it into a block element to fill the whole list */
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee; /* Add a hover effect to all links, except for headers */
+}

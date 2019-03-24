@@ -134,3 +134,36 @@ $(".planet-image-facts").on('click', function() {
       })
     });
 })
+
+$(".planet-image-facts").on('hover mouseenter', function() {
+  console.log($(this).attr('value'));
+  var nameOfPlanet = $(this).attr('value');
+  $(`.${nameOfPlanet}-span`).css('visibility','visible');
+});
+$(".planet-image-facts").on('mouseleave', function() {
+  console.log($(this).attr('value'));
+  var nameOfPlanet = $(this).attr('value');
+  $(`.${nameOfPlanet}-span`).css('visibility','hidden');
+});
+
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("search-input");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    if ($("#search-input").val() == "") {
+      $("#myUL li").css('display','none');
+    } else {
+        for (i = 0; i < li.length; i++) {
+          a = li[i].getElementsByTagName("a")[0];
+          txtValue = a.textContent || a.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              li[i].style.display = "block";
+          } else {
+              li[i].style.display = "none";
+          }
+      }
+    }
+
+}
