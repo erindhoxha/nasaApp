@@ -11,6 +11,15 @@
         searchClicked = true;
         console.log(searchClicked);
     })
+    // NEED THIS CODE FOR THE SEARCH - WHEN TYPING ON ENTER ENTER CLICK WILL TRIGGER THE BUTTON
+    var input = document.getElementById("search-input");
+    input.addEventListener("keyup", function (event) {
+      if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("search").click();
+      }
+    });
+    
     var carousel = $(".carousel"),
       currdeg = 0;
     function rotate(e) {
@@ -27,9 +36,7 @@
         "transform": "rotateY(" + currdeg + "deg)"
       });
     }
-    // NAV BAR
 
-    
     //Slick Slider
     $(document).ready(function(){
       $('.planet-slider').slick({
@@ -46,3 +53,6 @@
           ]
         });
     });
+
+
+    

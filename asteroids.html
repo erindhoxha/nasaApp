@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+   integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+   crossorigin=""/>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<title>Asteroids</title>
+	  <link rel="stylesheet" href="css/normalize.css">
+	  <link rel="stylesheet" href="css/bootstrap.min.css">
+	  <link rel="stylesheet" href="css/main.css">
+	  <link rel="stylesheet" href="css/asteroids.css">
+
+</head>
+<body id="home">
+    <nav class="navbar navbar-expand-lg nav-spec">
+        <img class="logo" src="img/nasa-logo.png">
+        <a href="#menu" id="toggle"  data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation"><span></span></a>
+        <div class="collapse navbar-collapse" id="navbarsExample05">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Planets <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="asteroids.html">Asteroids <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="facts.html">Facts <span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+
+
+        <svg style="display: none">
+          <symbol id="magnify" viewBox="0 0 18 18" height="100%" width="100%">
+            <path d="M12.5 11h-.8l-.3-.3c1-1.1 1.6-2.6 1.6-4.2C13 2.9 10.1 0          6.5 0S0 2.9 0 6.5 2.9 13 6.5 13c1.6 0 3.1-.6 4.2-1.6l.3.3v.8l5 5          1.5-1.5-5-5zm-6 0C4 11 2 9 2 6.5S4 2 6.5 2 11 4 11 6.5 9 11 6.5            11z"
+              fill="#fff" fill-rule="evenodd" />
+          </symbol>
+        </svg>
+        <div class="search-bar">
+          <input type="text" class="input" id="search-input" placeholder="&nbsp;">
+          <span class="highlight"></span>
+          <div class="search-btn" id="search">
+            <svg class="icon icon-18">
+              <use xlink:href="#magnify"></use>
+            </svg>
+          </div>
+        </div>
+        </div>
+        </div>
+      </nav>
+
+	<div class="container">
+		<ul class="asteroidDetails">
+			<!-- page elements will dynamically load here -->
+		</ul>
+	</div>
+
+
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<script src="js/asteroids.js"></script>
+	
+</body>
+</html>

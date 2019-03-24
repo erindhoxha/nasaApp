@@ -23,7 +23,7 @@ if (searchClicked == "true") {
       var context = (response);
       var html = template(context);
       $("#facts").html(html);
-      $(".loading-container").css('visibility','hidden');
+      $(".loading-container").fadeOut();
       $(".see-more").css('visibility','visible');
       $(".card").slice(6,100).hide();
       hideExtraImages();
@@ -40,7 +40,7 @@ if (searchClicked == "true") {
       var context = (response);
       var html = template(context);
       $("#facts").html(html);
-    $(".loading-container").css('visibility','hidden');
+    $(".loading-container").fadeOut();
     $(".see-more").css('visibility','visible');
     $(".card").slice(6,100).hide();
     hideExtraImages();
@@ -48,8 +48,21 @@ if (searchClicked == "true") {
 }
 var n = 12;
 $(".see-more").on('click', function() {
-  $(".card").slice(0,n).show()
-  n += 6;
+    $(".loading-container").fadeIn();
+  setTimeout(() => {
+    $(".card").slice(0, n).show()
+    $(".loading-container").fadeOut();
+    n += 6;
+  }, 1000);
+
+});
+
+var input = document.getElementById("search-input");
+input.addEventListener("keyup", function (event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    document.getElementById("search").click();
+  }
 });
 
 function hideExtraImages() {
