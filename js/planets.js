@@ -38,6 +38,10 @@ var planetContainer;
 var overlay = document.querySelector('.overlay');
 var sliderContainer = document.querySelector('.slider-container');
 var current;
+var numberOfImages = 12;
+var selectedNasaId;
+var selectedImage;
+var imageOverlay = document.querySelector('.image-overlay');
 
 // Insert planets from array into slider
 function loadPlanets() {
@@ -57,40 +61,6 @@ function updateCurrent(){
   setTimeout( updateCurrent, 200);
 }
 
-// API
-for (i = 0; i < planets.length; i++) {
-  document.querySelector('.pc' + i).onclick = function() {
-    var selectedPlanet = current.dataset.planet;
-    var searchUrl = "https://images-api.nasa.gov/search?q=";
-    var imageUrl = "https://images-api.nasa.gov/asset/";
-    var randomNum = Math.floor(Math.random() * 99);
-      
-    // Search API for random image with search term of clicked planet
-    fetch(`${searchUrl}${selectedPlanet}${'&media_type=image'}`)
-        .then((response) => response.json())
-        .then((jsonresponse) => {
-        var response = jsonresponse.collection;
-        var nasaId = (response.items[randomNum].data[0].nasa_id);
-        getImage(nasaId);
-    });
-
-    // Get full resolution image of searched image
-    function getImage(nasaId) {
-      fetch(`${imageUrl}${nasaId}`)
-        .then((response) => response.json())
-        .then((jsonresponse) => {
-        var response = jsonresponse.collection;
-        var selectedImage = (response.items[2].href);
-        // Apply image as background image
-        overlay.style.backgroundImage = 'url(' + selectedImage + ')';
-        overlay.style.backgroundPosition = 'left top';
-        overlay.style.backgroundSize = 'cover';
-        sliderContainer.style.opacity = '0';
-      });
-    }
-  }
-}
-
 // Fill modal with 12 x random images from search with keyword of clicked planet
 function fillModal() {
   var selectedPlanet = current.dataset.planet;
@@ -104,17 +74,24 @@ function fillModal() {
 }
 
 function getThumbnails(response) {
-  var randomNumbers = Array.from({length: 12}, () => Math.floor(Math.random() * 100));
-  for (i = 0; i < 12; i++) {
+  var randomNumbers = Array.from({length: numberOfImages}, () => Math.floor(Math.random() * 100));
+  for (i = 0; i < numberOfImages; i++) {
     var thumbnail = (response.items[randomNumbers[i]].links[0].href);
-    $('.modal-content').append('<div class="modal-card"><img class="thumbnail" src="' + thumbnail + '"></div>');
+    var nasaId = (response.items[randomNumbers[i]].data[0].nasa_id);
+    $('.modal-content').append('<div class="modal-card" data-nasaid="' + nasaId + '"><img class="thumbnail" src="' + thumbnail + '"></div>');
   }
+  $('.modal-card').click(function(){
+    selectedNasaId = (this.dataset.nasaid);
+    getImage(selectedNasaId);
+  });
 }
 
 // Modal show
 for (i = 0; i < planets.length; i++) {
   document.querySelector('.pc' + i).onclick = function() {
     fillModal ();
+    $('#refresh-btn').removeClass('hidden');
+    $('#close-btn').removeClass('hidden');
     $('.planet-modal').removeClass('hidden-modal');
     $('.slick-arrow').addClass('hidden');
     setTimeout(function() {
@@ -138,6 +115,8 @@ function hideModal() {
   $('.slick-arrow').removeClass('hidden');
   $('.modal-content').addClass('hidden');
   $('.modal-content').empty();
+  $(imageOverlay).addClass('hidden-image-overlay');
+  $('#back-to-gallery').addClass('hidden');
   modalOpen = false;
 }
 
@@ -152,6 +131,40 @@ $('#close-btn').click(function(){
 });
 
 $('#refresh-btn').click(function(){
+  $(imageOverlay).addClass('hidden-image-overlay');
   $('.modal-content').empty();
   fillModal ();
 });
+
+// Fetch full size image
+function getImage(selectedNasaId) {
+  var imageUrl = "https://images-api.nasa.gov/asset/";
+  fetch(`${imageUrl}${selectedNasaId}`)
+    .then((response) => response.json())
+    .then((jsonresponse) => {
+    var response = jsonresponse.collection;
+    selectedImage = (response.items[0].href);
+    // // Apply image as background image
+    // overlay.style.backgroundImage = 'url(' + selectedImage + ')';
+    // overlay.style.backgroundPosition = 'left top';
+    // overlay.style.backgroundSize = 'cover';
+    // sliderContainer.style.opacity = '0';
+    openImage();
+  });
+}
+
+// Open full size image
+function openImage() {
+  imageOverlay.style.backgroundImage = 'url(' + selectedImage + ')';
+  $(imageOverlay).removeClass('hidden-image-overlay');
+  $('#refresh-btn').addClass('hidden');
+  $('#close-btn').addClass('hidden');
+  $('#back-to-gallery').removeClass('hidden');
+  $('#back-to-gallery').click(function(){
+    imageOverlay.style.backgroundImage = 'url()';
+    $('#back-to-gallery').addClass('hidden');
+    $(imageOverlay).addClass('hidden-image-overlay');
+    $('#refresh-btn').removeClass('hidden');
+    $('#close-btn').removeClass('hidden');
+  });
+}
