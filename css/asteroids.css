@@ -6,7 +6,7 @@
 /* STATE 1 - HIDDEN */
 .asteroid-list {
   width: 20%;
-  display: none;				/* on page load, hide asteroid list */
+  /*display: none;*/				/* on page load, hide asteroid list */
 }
 
 /* STATE 2 - VISIBLE */
