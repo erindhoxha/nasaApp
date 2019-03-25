@@ -1,6 +1,6 @@
 /*CSS for Home Page planet slider*/
 .planet-slider {
-	position: absolute;
+	position: absolute; 
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -67,13 +67,6 @@
 
 .box {
 	position: relative;
-}
-
-.overlay {
-	position: absolute;
-	opacity: 0.2;
-	height: 100%;
-	width: 100%;
 }
 
 .planet-modal {
