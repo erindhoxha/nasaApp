@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="css/planets.css">
   <link rel="stylesheet" href="css/slick.css">
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
   <meta name="theme-color" content="#fafafa">
 </head>
@@ -27,7 +28,7 @@
         <div class="collapse navbar-collapse" id="navbarsExample05">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Planets <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="asteroids.html">Asteroids <span class="sr-only">(current)</span></a>
@@ -81,7 +82,13 @@
         <img src="img/asteroid.png" alt="chicken" style="height:320px; width:320px" class="slider-img">
       </div>
   </div>
+  <div class="overlay"></div>
   <div class="planet-slider">
+  </div>
+  <div class="planet-modal hidden-modal">
+    <i id="refresh-btn" class="fas fa-sync-alt"></i>
+    <i id="close-btn" class="fas fa-times-circle"></i>
+    <div class="modal-content hidden"></div>
   </div>
 </div>
 

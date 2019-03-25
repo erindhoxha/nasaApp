@@ -27,10 +27,6 @@
 	transition: 0.55s ease all;
 }
 
-.planet-image:hover {
-	transform: scale(1.03);
-}
-
 .slick-current img {
 	filter: none;
 	transform: scale(1);
@@ -67,4 +63,116 @@
 	height: 100%;
 	width: 15%;
 	z-index: 99;
+}
+
+.box {
+	position: relative;
+}
+
+.overlay {
+	position: absolute;
+	opacity: 0.2;
+	height: 100%;
+	width: 100%;
+}
+
+.planet-modal {
+	position: absolute;
+	opacity: 0.95;
+	height: 75%;
+	width: 60%;
+	border: 1.5px solid #666;
+	border-radius: 20px;
+	background-color: #000;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 999;
+	transition: 0.5s ease all;
+}
+
+.modal-content {
+	height: 100%;
+	width: 100%;
+	background: none;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	overflow-y: auto;
+}
+
+.hidden-modal {
+	opacity: 0;
+	height: 0px;
+	width: 0px;
+}
+
+.modal-card {
+	height: 170px;
+	width: 170px;
+	margin: 10px;
+	border: 1.5px solid #666;
+	border-radius: 5px;
+	overflow: hidden;
+	filter: brightness(0.7);
+	transition: 0.08s ease all;
+}
+
+.modal-card:hover {
+	cursor: pointer;
+	filter: brightness(1.1);
+	border: 1.5px solid #ccc;
+}
+
+.thumbnail {
+	width: 100%;
+}
+
+#refresh-btn {
+	font-size: 3rem;
+	text-align: center;
+	color: rgb(23, 23, 207);
+	height: 3rem;
+	width: 3rem;
+	background-color: rgb(0, 0, 0);
+	border-radius: 50%;
+	position: absolute;
+	top: -1.5rem;
+	left: -1.5rem;
+	z-index: 9999;
+}
+
+#refresh-btn:hover {
+	cursor: pointer;
+	color: rgb(0, 0, 255);
+}
+
+#refresh-btn:active {
+	color: rgb(23, 23, 207);
+}
+
+#close-btn {
+	font-size: 3rem;
+	text-align: center;
+	color: rgb(219, 20, 20);
+	height: 3rem;
+	width: 3rem;
+	background-color: rgb(0, 0, 0);
+	border-radius: 50%;
+	position: absolute;
+	top: -1.5rem;
+	right: -1.5rem;
+	z-index: 9999;
+}
+
+#close-btn:hover {
+	cursor: pointer;
+	color: rgb(255, 0, 0);
+}
+
+#close-btn:active {
+	cursor: pointer;
+	color: rgb(219, 20, 20);
 }
