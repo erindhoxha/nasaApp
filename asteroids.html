@@ -12,6 +12,7 @@
 	  <link rel="stylesheet" href="css/main.css">
 	  <link rel="stylesheet" href="css/asteroids.css">
 
+
 </head>
 <body id="home">
     <nav class="navbar navbar-expand-lg nav-spec">
@@ -50,11 +51,21 @@
         </div>
       </nav>
 
-	<div class="container">
+  
+	<div class="main-container">
+    <div class="date-picker">
+      <label for="from">From</label>
+      <input type="text" id="from" name="from">
+      <label for="to">to</label>
+      <input type="text" id="to" name="to">
+    </div>
+      <a class="btn-primary">Asteroids near Earth</a>
+    <div class="asteroid-list">
 		<ul class="asteroidDetails">
 			<!-- page elements will dynamically load here -->
 		</ul>
 	</div>
+  </div>
 
 
 <script src="js/plugins.js"></script>
@@ -64,6 +75,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 <script src="js/asteroids.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
 	
 </body>
 </html>
