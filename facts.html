@@ -159,44 +159,74 @@
         </svg>
 
         <div class="search-bar">
-
-          <input type="text" class="input" id="search-input" placeholder="&nbsp;">
+          <input type="text" onkeyup="myFunction()" class="input" id="search-input" onkeyup="myFunction()" placeholder="&nbsp;">
           <span class="highlight"></span>
+          <ul id="myUL">
+              <li><a href="#">Mercury</a></li>
+              <li><a href="#">Venus</a></li>
+            
+              <li><a href="#">Earth</a></li>
+              <li><a href="#">Mars</a></li>
+            
+              <li><a href="#">Jupiter</a></li>
+              <li><a href="#">Saturn</a></li>
+              <li><a href="#">Uranus</a></li>
+            </ul>
           <div class="search-btn" id="search">
             <svg class="icon icon-18">
               <use xlink:href="#magnify"></use>
             </svg>
           </div>
+
         </div>
+
+
         </div>
         </div>
       </nav>
 
+
+
+
+        <div class="rick-morty-spaceship-div">
+            <img class="rick-morty-spaceship" value="mercury" src="img/rickAndMorty.png">
+        </div>
+
         <div class="planet-slider-facts container-fluid">
           <div class="row justify-content-center">
-            <div class="col-lg-1 col-sm-3 col-md-2 col-3">
-             <img class="planet-image-facts" src="img/mercury.png">
+            <div class="col-lg-1 col-sm-3 col-md-2 col-3 text-center">
+             <img class="planet-image-facts" value="mercury" src="img/mercury.png">
+             <p class="mercury-span span-planet">Mercury</p>
             </div>
             <div class="col-lg-1 col-sm-3 col-md-2 col-3">
-              <img class="planet-image-facts" src="img/venus.png">
+              <img class="planet-image-facts" value="venus" src="img/venus.png">
+             <p class="venus-span span-planet">Venus</p>
             </div>
             <div class="col-lg-1 col-sm-3 col-md-2 col-3">
-              <img class="planet-image-facts" src="img/earth.png">
+              <img class="planet-image-facts" value="earth" src="img/earth.png">
+             <p class="earth-span span-planet">Earth</p>
             </div>
             <div class="col-lg-1 col-sm-3 col-md-2 col-3">
-              <img class="planet-image-facts" src="img/mars.png">
+              <img class="planet-image-facts" value="mars" src="img/mars.png">
+             <p class="mars-span span-planet">Mars</p>
             </div>
             <div class="col-lg-1 col-sm-3 col-md-2 col-3">
-              <img class="planet-image-facts" src="img/jupiter.png">
+              <img class="planet-image-facts" value="jupiter" src="img/jupiter.png">
+             <p class="jupiter-span span-planet">Jupiter</p>
             </div>
             <div class="col-lg-1 col-sm-3 col-md-2 col-3">
-              <img class="planet-image-facts" src="img/saturn.png">
+              <img class="planet-image-facts" value="saturn" src="img/saturn.png">
+             <p class="saturn-span span-planet">Saturn</p>
             </div>
             <div class="col-lg-1 col-sm-3 col-md-2 col-3">
-              <img class="planet-image-facts" src="img/uranus.png">
+              <img class="planet-image-facts" value="uranus" src="img/uranus.png">
+             <p class="uranus-span span-planet">Uranus</p>
             </div>
             <div class="col-lg-1 col-sm-3 col-md-2 col-3">
-              <img class="planet-image-facts" src="img/neptune.png">
+              <img class="planet-image-facts" valueOfPlanet="RickMorty"  value="neptune" src="img/neptune.png">
+              <div class="span-div">
+                <p class="neptune-span span-planet">Neptune</p>
+              </div>
             </div>
           </div>
         </div>
@@ -232,13 +262,24 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="factsModal">Modal title</h5>
+        <h5 class="modal-title" id="factsModal">Title</h5><br>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        ...
+      <div class="modal-body text-center">
+        <img class="modal-img" src="img/asteroid.png">
+        <p>Date created: </p>
+        <h6 class="date-created"></h6>
+        <p>Description: </p>
+        <h6 class="modal-description"></h6>
+        <p>Nasa ID: </p>
+        <h6 class="modal-nasa-id"></h6>
+        <p>Secondary Creator: </p>
+        <h6 class="modal-secondary-creator"></h6>
+        <p>Center: </p>
+        <h6 class="modal-center"></h6>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
