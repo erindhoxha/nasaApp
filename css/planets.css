@@ -69,13 +69,6 @@
 	position: relative;
 }
 
-.overlay {
-	position: absolute;
-	opacity: 0.2;
-	height: 100%;
-	width: 100%;
-}
-
 .planet-modal {
 	position: absolute;
 	opacity: 1;
