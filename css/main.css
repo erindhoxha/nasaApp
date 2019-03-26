@@ -5,6 +5,8 @@
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
  * Kroc Camen, and the H5BP dev community and team.
  */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:300,400,700,900');
 :root {
   --numOfListA: 10;
   --imgW: 140px;
@@ -248,7 +250,7 @@ html {
 
 body {
   background-color: black;
-  font-family: "Merriweather", "Montserrat"; }
+  font-family:"Montserrat", "Merriweather" }
 
 /*
  * Remove text-shadow in selection highlight:
@@ -468,3 +470,47 @@ textarea {
     page-break-after: avoid; } }
 
 /*# sourceMappingURL=main.css.map */
+
+
+/* ERINDS CODE FOR THE SEARCH FUNCTIONALITY */
+
+
+#myInput {
+  background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+  background-position: 10px 12px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 100%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+}
+
+#myUL {
+  /* Remove default list styling */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  position:absolute;
+  top:45px;
+  width:270px;
+  z-index:9;
+  right:3px;
+}
+#myUL li {
+  display:none;
+}
+
+#myUL li a {
+  border: 1px solid #ddd; /* Add a border to all links */
+  background-color: #f6f6f6; /* Grey background color */
+  text-decoration: none; /* Remove default text underline */
+  font-size: 15px; /* Increase the font-size */
+  padding:15px;
+  color: black; /* Add a black text color */
+  display: block; /* Make it into a block element to fill the whole list */
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee; /* Add a hover effect to all links, except for headers */
+}

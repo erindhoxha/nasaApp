@@ -4,7 +4,7 @@ $(function() {
     // Now we may render our compiled template by passing required context
 
 
-    https://https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=2&api_key=DEMO_KEYDEMO_KEY
+    //https://https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=2&api_key=DEMO_KEYDEMO_KEY
 
     
     var apiKey = "TBXJbvg5BOgWrUI5dgjrf23cS4Fhs1GczfDNJYEe";
@@ -50,7 +50,7 @@ $(function() {
             // rovers.forEach(function(rover) {
             //     $('<h1 class="img-tile">' + rover.img_src + '</h1>' ).appendTo('.go-here');
             // });
-
+            
             var template = document.getElementById('html_template').innerHTML;
 
             // compile it with Template7

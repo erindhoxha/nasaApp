@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800');
 $nasaCol: #0b3d91;
 $fontFamily: 'Merriweather', 'Montserrat';
 :root {
@@ -6,6 +6,9 @@ $fontFamily: 'Merriweather', 'Montserrat';
   --imgW: 140px;
   --imgH: var(--imgW);
   --mBetweenImg: 50px; 
+}
+body {
+  font-family:'Montserrat';
 }
 .slider-container.style-slider-for-facts {
   position:fixed;
@@ -460,7 +463,13 @@ ERINDS STYLES FOR FACTS.HTML
 #myUL li {
   display:none;
 }
-
+.btn-close {
+  background-color: $nasaCol;
+  border:none;
+}
+.btn-close:hover {
+  background-color:$nasaCol;
+}
 #myUL li a {
   border: 1px solid #ddd; /* Add a border to all links */
   background-color: #f6f6f6; /* Grey background color */

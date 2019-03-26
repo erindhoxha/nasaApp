@@ -1,3 +1,4 @@
+// Planet array
 var planets = [
 	{
 		name: 'mercury',
@@ -33,17 +34,33 @@ var planets = [
   },
 ]
 
+
+// Global variables
 var planetSlider = document.querySelector('.planet-slider');
-var planetContainer;
-var overlay = document.querySelector('.overlay');
 var sliderContainer = document.querySelector('.slider-container');
+var imageOverlay = document.querySelector('.image-overlay');
+var planetModal = document.querySelector('.planet-modal');
+var modalContent = document.querySelector('.modal-content');
+var closeBtn = document.getElementById('close-btn');
+var refreshBtn = document.getElementById('refresh-btn');
+var backToGallery = document.getElementById('back-to-gallery');
+var fullScreenBtn = document.getElementById('full-screen');
+var smallScreenBtn = document.getElementById('small-screen');
+var backgroundBtn = document.getElementById('background-button');
+var background = document.querySelector('.box');
+var backgroundOverlay = document.querySelector('.background-overlay');
+var backgroundSlider = document.querySelector('.slider-container');
+var loadingSpinner = document.querySelector('.loading-spinner');
+var slickArrow;
+var planetContainer;
 var current;
 var numberOfImages = 12;
+var imagesLoaded;
 var selectedNasaId;
 var selectedImage;
-var imageOverlay = document.querySelector('.image-overlay');
 
-// Insert planets from array into slider
+
+// PLANET SLIDER - Insert planets from array into slider
 function loadPlanets() {
     for (i = 0; i < planets.length; i++) {
         $(planetSlider).append('<div class="planet-container pc' + i + '" data-planet="' + planets[i].name + '"><img class="planet-image" src="' + planets[i].img + '"><h1>' + planets[i].name + '</h1></div>');
@@ -53,118 +70,167 @@ function loadPlanets() {
 
 window.onload = loadPlanets();
 
-// Update active planet
+
+// PLANET SLIDER - Update active planet
 updateCurrent();
 
 function updateCurrent(){
-  current = document.querySelector('.slick-current');
-  setTimeout( updateCurrent, 200);
+    current = document.querySelector('.slick-current');
+    setTimeout( updateCurrent, 200);
 }
 
-// Fill modal with 12 x random images from search with keyword of clicked planet
+
+// API - Fill modal with random images from search with keyword of clicked planet
 function fillModal() {
-  var selectedPlanet = current.dataset.planet;
-  var searchUrl = "https://images-api.nasa.gov/search?q=";
-  fetch(`${searchUrl}${selectedPlanet}${'&media_type=image'}`)
-    .then((response) => response.json())
-    .then((jsonresponse) => {
-    var response = jsonresponse.collection;
-    getThumbnails(response);
-  });
+    loadingSpinner.classList.remove('loading-spinner-hidden');
+    var selectedPlanet = current.dataset.planet;
+    var searchUrl = "https://images-api.nasa.gov/search?q=";
+    fetch(`${searchUrl}${selectedPlanet}${'&media_type=image'}`)
+        .then((response) => response.json())
+        .then((jsonresponse) => {
+        var response = jsonresponse.collection;
+        getThumbnails(response);
+    });
+  }
+  
+  function getThumbnails(response) {
+    imagesLoaded = 0;
+    var randomNumbers = Array.from({length: numberOfImages}, () => Math.floor(Math.random() * 100));
+    for (i = 0; i < numberOfImages; i++) {
+        var thumbnail = (response.items[randomNumbers[i]].links[0].href);
+        var nasaId = (response.items[randomNumbers[i]].data[0].nasa_id);
+        $(modalContent).append('<div class="modal-card" data-nasaid="' + nasaId + '"><img class="thumbnail" src="' + thumbnail + '"></div>');
+    }
+    $('.thumbnail').on('load', function() {
+        imagesLoaded++;
+    });
+    checkImagesLoaded(imagesLoaded);
+    $('.modal-card').click(function(){
+        $(this).append('<img class="spinner-icon-small" src="img/spinner.svg" alt="loading spinner">');
+        selectedNasaId = (this.dataset.nasaid);
+        getImage(selectedNasaId);
+    });
+  }
+
+  function checkImagesLoaded(imagesLoaded) {
+      if (imagesLoaded < 12) {
+        window.setTimeout(checkImagesLoaded, 100);
+      } else {
+          setTimeout(function() {
+              loadingSpinner.classList.add('loading-spinner-hidden');
+          }, 1000);
+      }
+  }
+
+
+// API - Fetch full size image
+function getImage(selectedNasaId) {
+    var imageUrl = "https://images-api.nasa.gov/asset/";
+    fetch(`${imageUrl}${selectedNasaId}`)
+        .then((response) => response.json())
+        .then((jsonresponse) => {
+        var response = jsonresponse.collection;
+        selectedImage = (response.items[0].href);
+        openImage();
+    });
+  }
+  
+
+// API - Open full size image
+function openImage() {
+    imageOverlay.style.backgroundImage = 'url(' + selectedImage + ')';
+    imageOverlay.classList.remove('hidden-image-overlay');
+    refreshBtn.classList.add('hidden');
+    closeBtn.classList.add('hidden');
+    backToGallery.classList.remove('hidden');
+    fullScreenBtn.classList.remove('hidden');
+    backgroundBtn.classList.remove('hidden');
+    backgroundBtn.onclick = function() {
+        document.body.style.backgroundImage = 'url(' + selectedImage + ')';
+        document.body.style.backgroundSize = 'cover';
+        backgroundOverlay.classList.remove('hidden');
+        backgroundSlider.classList.add('hidden');
+    }
 }
 
-function getThumbnails(response) {
-  var randomNumbers = Array.from({length: numberOfImages}, () => Math.floor(Math.random() * 100));
-  for (i = 0; i < numberOfImages; i++) {
-    var thumbnail = (response.items[randomNumbers[i]].links[0].href);
-    var nasaId = (response.items[randomNumbers[i]].data[0].nasa_id);
-    $('.modal-content').append('<div class="modal-card" data-nasaid="' + nasaId + '"><img class="thumbnail" src="' + thumbnail + '"></div>');
-  }
-  $('.modal-card').click(function(){
-    selectedNasaId = (this.dataset.nasaid);
-    getImage(selectedNasaId);
-  });
-}
 
 // Modal show
 for (i = 0; i < planets.length; i++) {
-  document.querySelector('.pc' + i).onclick = function() {
-    fillModal ();
-    $('#refresh-btn').removeClass('hidden');
-    $('#close-btn').removeClass('hidden');
-    $('.planet-modal').removeClass('hidden-modal');
-    $('.slick-arrow').addClass('hidden');
-    setTimeout(function() {
-      $('.modal-content').removeClass('hidden');
-      modalOpen = true;
-    }, 500);
-  }
+    document.querySelector('.pc' + i).onclick = function() {
+        fillModal();
+        refreshBtn.classList.remove('hidden');
+        closeBtn.classList.remove('hidden');
+        planetModal.classList.remove('hidden-modal');
+        setTimeout(function() {
+            modalOpen = true;
+        }, 500);
+    }
 }
+
 
 // Modal hide
 var mouse_in_modal = false;
 var modalOpen = false;
-$('.planet-modal').hover(function(){ 
+$(planetModal).hover(function(){ 
     mouse_in_modal = true; 
 }, function(){ 
     mouse_in_modal = false; 
 });
 
+function emptyModal() {
+    modalContent.innerHTML = "";
+}
+
 function hideModal() {
-  $('.planet-modal').addClass('hidden-modal');
-  $('.slick-arrow').removeClass('hidden');
-  $('.modal-content').addClass('hidden');
-  $('.modal-content').empty();
-  $(imageOverlay).addClass('hidden-image-overlay');
-  $('#back-to-gallery').addClass('hidden');
-  modalOpen = false;
+    planetModal.classList.add('hidden-modal');
+    planetModal.classList.remove('fullscreen');
+    emptyModal();
+    imageOverlay.classList.add('hidden-image-overlay');
+    backToGallery.classList.add('hidden');
+    fullScreenBtn.classList.add('hidden');
+    smallScreenBtn.classList.add('hidden');
+    backgroundBtn.classList.add('hidden');
+    modalOpen = false;
 }
 
-$('body').click(function() {
-  if (mouse_in_modal === false && modalOpen === true) {
+
+// Buttons
+document.body.onclick = function() {
+    if (mouse_in_modal === false && modalOpen === true) {
+        hideModal();
+    }
+}
+
+closeBtn.onclick = function(){
     hideModal();
-  }
-});
-
-$('#close-btn').click(function(){
-  hideModal();
-});
-
-$('#refresh-btn').click(function(){
-  $(imageOverlay).addClass('hidden-image-overlay');
-  $('.modal-content').empty();
-  fillModal ();
-});
-
-// Fetch full size image
-function getImage(selectedNasaId) {
-  var imageUrl = "https://images-api.nasa.gov/asset/";
-  fetch(`${imageUrl}${selectedNasaId}`)
-    .then((response) => response.json())
-    .then((jsonresponse) => {
-    var response = jsonresponse.collection;
-    selectedImage = (response.items[0].href);
-    // // Apply image as background image
-    // overlay.style.backgroundImage = 'url(' + selectedImage + ')';
-    // overlay.style.backgroundPosition = 'left top';
-    // overlay.style.backgroundSize = 'cover';
-    // sliderContainer.style.opacity = '0';
-    openImage();
-  });
 }
 
-// Open full size image
-function openImage() {
-  imageOverlay.style.backgroundImage = 'url(' + selectedImage + ')';
-  $(imageOverlay).removeClass('hidden-image-overlay');
-  $('#refresh-btn').addClass('hidden');
-  $('#close-btn').addClass('hidden');
-  $('#back-to-gallery').removeClass('hidden');
-  $('#back-to-gallery').click(function(){
+refreshBtn.onclick = function(){
+    emptyModal();
+    fillModal();
+}
+
+backToGallery.onclick = function(){
     imageOverlay.style.backgroundImage = 'url()';
-    $('#back-to-gallery').addClass('hidden');
-    $(imageOverlay).addClass('hidden-image-overlay');
-    $('#refresh-btn').removeClass('hidden');
-    $('#close-btn').removeClass('hidden');
-  });
+    backToGallery.classList.add('hidden');
+    fullScreenBtn.classList.add('hidden');
+    smallScreenBtn.classList.add('hidden');
+    backgroundBtn.classList.add('hidden');
+    planetModal.classList.remove('fullscreen');
+    imageOverlay.classList.add('hidden-image-overlay');
+    refreshBtn.classList.remove('hidden');
+    closeBtn.classList.remove('hidden');
+    $('.spinner-icon-small').remove();
+}
+
+fullScreenBtn.onclick = function() {
+    planetModal.classList.add('fullscreen');
+    fullScreenBtn.classList.add('hidden');
+    smallScreenBtn.classList.remove('hidden');
+}
+
+smallScreenBtn.onclick = function() {
+    planetModal.classList.remove('fullscreen');
+    fullScreenBtn.classList.remove('hidden');
+    smallScreenBtn.classList.add('hidden');
 }

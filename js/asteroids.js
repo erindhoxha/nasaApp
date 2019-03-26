@@ -59,7 +59,7 @@ $(function(){
 		var urlAsteroidTitles;
 
 		$( ".btn-primary" ).click(function() {
-
+			$(".asteroidDetails").empty();
 			dateFrom = $("#from").val();
 			dateTo = $("#to").val();
 			urlAsteroidTitles = 'https://api.nasa.gov/neo/rest/v1/feed?start_date=' + dateFrom + '&end_date=' + dateTo + '&api_key=' + apiKey;
@@ -74,18 +74,14 @@ $(function(){
 				// when the ajax request is complete do all of these things
 				success: function(res) {
 
-					console.log(res);
-					console.log(dateFrom + ' ' + dateTo);
+					console.log(res.near_earth_objects[Object.keys(res.near_earth_objects)[0]])
+					// console.log(dateFrom + ' ' + dateTo);
 
-					// console.log(res);
+					var asteroids = res.near_earth_objects[Object.keys(res.near_earth_objects)[0]]
 
-					
-
-					// var asteroids = res.near_earth_objects['2017-09-07'];
-
-					// asteroids.forEach(function(asteroid) {
-					// 	$('<li>' + '<h4>' + asteroid.name + '</h4>' + '</li>').appendTo('ul.asteroidDetails');
-					// });
+					asteroids.forEach(function(asteroid) {
+						$('<li>' + '<h4>' + asteroid.name + '</h4>' + '</li>').appendTo('ul.asteroidDetails');
+					});
 
 					
 				},
@@ -93,15 +89,4 @@ $(function(){
 			}); // END ajax request
 		});
 
-
-
-		$( ".btn-primary" ).click(function() {
-			$(".asteroid-list").toggleClass('visible');	
-		});
-
-
-
-
-	
-	
 });
