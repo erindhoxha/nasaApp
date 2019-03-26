@@ -1,8 +1,12 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800");
 :root {
   --numOfListA: 10;
   --imgW: 140px;
   --imgH: var(--imgW);
   --mBetweenImg: 50px; }
+
+body {
+  font-family: 'Montserrat'; }
 
 .slider-container.style-slider-for-facts {
   position: fixed;
