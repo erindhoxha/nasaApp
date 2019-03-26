@@ -1,3 +1,4 @@
+// Planet array
 var planets = [
 	{
 		name: 'mercury',
@@ -33,6 +34,7 @@ var planets = [
   },
 ]
 
+
 // Global variables
 var planetSlider = document.querySelector('.planet-slider');
 var sliderContainer = document.querySelector('.slider-container');
@@ -42,12 +44,19 @@ var modalContent = document.querySelector('.modal-content');
 var closeBtn = document.getElementById('close-btn');
 var refreshBtn = document.getElementById('refresh-btn');
 var backToGallery = document.getElementById('back-to-gallery');
+var fullScreenBtn = document.getElementById('full-screen');
+var smallScreenBtn = document.getElementById('small-screen');
+var backgroundBtn = document.getElementById('background-button');
+var background = document.querySelector('.box');
+var backgroundOverlay = document.querySelector('.background-overlay');
+var backgroundSlider = document.querySelector('.slider-container');
 var slickArrow;
 var planetContainer;
 var current;
 var numberOfImages = 12;
 var selectedNasaId;
 var selectedImage;
+
 
 // PLANET SLIDER - Insert planets from array into slider
 function loadPlanets() {
@@ -59,6 +68,7 @@ function loadPlanets() {
 
 window.onload = loadPlanets();
 
+
 // PLANET SLIDER - Update active planet
 updateCurrent();
 
@@ -66,8 +76,6 @@ function updateCurrent(){
     current = document.querySelector('.slick-current');
     setTimeout( updateCurrent, 200);
 }
-
-
 
 
 // API - Fill modal with random images from search with keyword of clicked planet
@@ -78,7 +86,6 @@ function fillModal() {
         .then((response) => response.json())
         .then((jsonresponse) => {
         var response = jsonresponse.collection;
-        console.log(response);
         getThumbnails(response);
     });
   }
@@ -96,6 +103,7 @@ function fillModal() {
     });
   }
 
+
 // API - Fetch full size image
 function getImage(selectedNasaId) {
     var imageUrl = "https://images-api.nasa.gov/asset/";
@@ -108,6 +116,7 @@ function getImage(selectedNasaId) {
     });
   }
   
+
 // API - Open full size image
 function openImage() {
     imageOverlay.style.backgroundImage = 'url(' + selectedImage + ')';
@@ -115,14 +124,16 @@ function openImage() {
     refreshBtn.classList.add('hidden');
     closeBtn.classList.add('hidden');
     backToGallery.classList.remove('hidden');
-    backToGallery.onclick = function(){
-        imageOverlay.style.backgroundImage = 'url()';
-        backToGallery.classList.add('hidden');
-        imageOverlay.classList.add('hidden-image-overlay');
-        refreshBtn.classList.remove('hidden');
-        closeBtn.classList.remove('hidden');
-};
+    fullScreenBtn.classList.remove('hidden');
+    backgroundBtn.classList.remove('hidden');
+    backgroundBtn.onclick = function() {
+        document.body.style.backgroundImage = 'url(' + selectedImage + ')';
+        document.body.style.backgroundSize = 'cover';
+        backgroundOverlay.classList.remove('hidden');
+        backgroundSlider.classList.add('hidden');
+    }
 }
+
 
 // Modal show
 for (i = 0; i < planets.length; i++) {
@@ -137,6 +148,7 @@ for (i = 0; i < planets.length; i++) {
         }, 500);
     }
 }
+
 
 // Modal hide
 var mouse_in_modal = false;
@@ -153,23 +165,53 @@ function emptyModal() {
 
 function hideModal() {
     planetModal.classList.add('hidden-modal');
+    planetModal.classList.remove('fullscreen');
     emptyModal();
     imageOverlay.classList.add('hidden-image-overlay');
     backToGallery.classList.add('hidden');
+    fullScreenBtn.classList.add('hidden');
+    smallScreenBtn.classList.add('hidden');
+    backgroundBtn.classList.add('hidden');
     modalOpen = false;
 }
 
+
+// Buttons
 document.body.onclick = function() {
     if (mouse_in_modal === false && modalOpen === true) {
         hideModal();
     }
-};
+}
 
 closeBtn.onclick = function(){
     hideModal();
-};
+}
 
 refreshBtn.onclick = function(){
     emptyModal();
     fillModal();
-};
+}
+
+backToGallery.onclick = function(){
+    imageOverlay.style.backgroundImage = 'url()';
+    backToGallery.classList.add('hidden');
+    fullScreenBtn.classList.add('hidden');
+    smallScreenBtn.classList.add('hidden');
+    backgroundBtn.classList.add('hidden');
+    planetModal.classList.remove('fullscreen');
+    imageOverlay.classList.add('hidden-image-overlay');
+    refreshBtn.classList.remove('hidden');
+    closeBtn.classList.remove('hidden');
+}
+
+fullScreenBtn.onclick = function() {
+    planetModal.classList.add('fullscreen');
+    fullScreenBtn.classList.add('hidden');
+    smallScreenBtn.classList.remove('hidden');
+}
+
+smallScreenBtn.onclick = function() {
+    planetModal.classList.remove('fullscreen');
+    fullScreenBtn.classList.remove('hidden');
+    smallScreenBtn.classList.add('hidden');
+}
