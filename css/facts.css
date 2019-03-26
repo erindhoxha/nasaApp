@@ -417,6 +417,13 @@ ERINDS STYLES FOR FACTS.HTML
 #myUL li {
   display: none; }
 
+.btn-close {
+  background-color: #0b3d91;
+  border: none; }
+
+.btn-close:hover {
+  background-color: #0b3d91; }
+
 #myUL li a {
   border: 1px solid #ddd;
   /* Add a border to all links */
