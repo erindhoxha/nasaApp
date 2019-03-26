@@ -5,6 +5,8 @@
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
  * Kroc Camen, and the H5BP dev community and team.
  */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:300,400,700,900');
 :root {
   --numOfListA: 10;
   --imgW: 140px;
@@ -248,7 +250,7 @@ html {
 
 body {
   background-color: black;
-  font-family: "Merriweather", "Montserrat"; }
+  font-family:"Montserrat", "Merriweather" }
 
 /*
  * Remove text-shadow in selection highlight:

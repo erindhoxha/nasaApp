@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800');
 $nasaCol: #0b3d91;
 $fontFamily: 'Merriweather', 'Montserrat';
 :root {
@@ -6,6 +6,9 @@ $fontFamily: 'Merriweather', 'Montserrat';
   --imgW: 140px;
   --imgH: var(--imgW);
   --mBetweenImg: 50px; 
+}
+body {
+  font-family:'Montserrat';
 }
 .slider-container.style-slider-for-facts {
   position:fixed;
