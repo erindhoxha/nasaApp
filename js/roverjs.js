@@ -13,6 +13,26 @@ $(function() {
 
     console.log(urlRover);
 
+    $(document).ready(function(){
+        $('.slick-me').slick({
+            infinite: true,
+            centerMode: true,
+            centerPadding: '25%',
+            responsive: [
+              {
+                breakpoint: 1024,
+                settings: {
+                  centerPadding: '0%',
+                }
+              }
+            ]
+          });
+      });
+
+
+
+  
+
 
     $.ajax({
 
@@ -21,6 +41,12 @@ $(function() {
           success: function(res){
             console.log(res)
             rovers = res.photos;
+
+
+       
+
+
+
             // rovers.forEach(function(rover) {
             //     $('<h1 class="img-tile">' + rover.img_src + '</h1>' ).appendTo('.go-here');
             // });
