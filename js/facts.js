@@ -46,10 +46,10 @@ if (searchClicked == "true") {
       var context = (response);
       var html = template(context);
       $("#facts").html(html);
-    $(".loading-container").fadeOut();
-    $(".see-more").css('visibility','visible');
-    $(".card").slice(6,100).hide();
-    hideExtraImages();
+      $(".loading-container").fadeOut();
+      $(".see-more").css('visibility','visible');
+      $(".card").slice(6,100).hide();
+      hideExtraImages();
       $(".see-more-btn").on('click', function() {
         dataNr = $(this).attr('data-nr');
         console.log(dataNr);
@@ -67,8 +67,6 @@ $(".see-more").on('click', function() {
   }, 1000);
 
 });
-
-
 
 var input = document.getElementById("search-input");
 input.addEventListener("keyup", function (event) {

@@ -44,11 +44,27 @@ a.btn-primary {
 .ui-datepicker{
 	background-color:white;
 }
-
+.asteroids-near-you {
+    cursor:pointer;
+}
+.asteroids-near-you:hover {
+    color:white !important;
+}
+.hasDatepicker {
+    font-family:'Montserrat';
+    font-size:20px;
+    text-indent: 10px;
+    font-weight:600;
+    color:#0b3d91;
+}
+label {
+    color:white;
+    font-family:Montserrat;
+}
 div.date-picker {
 
 	text-align: center;
-    font-family: montserrat:;
+    font-family: 'Montserrat';
     font-family: monospace;
     font-size: 25px;
     padding-top: 20px;
