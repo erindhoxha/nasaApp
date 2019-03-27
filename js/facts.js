@@ -52,6 +52,10 @@ if (searchClicked == "true") {
       hideExtraImages();
       $(".see-more-btn").on('click', function() {
         dataNr = $(this).attr('data-nr');
+        //add modal image from here, since it's loaded already
+        $('.modal-img').attr('src', this.closest(".card").children[0].getAttribute('src'));
+
+        console.log($(this))
         console.log(dataNr);
         getResponse()
       })
@@ -86,17 +90,19 @@ function hideExtraImages() {
   function getResponse() {
     fetch(response.items[dataNr].href)
     .then((response) => response.json())
-    .then((responseJson) => 
-    $('.modal-img').attr('src', responseJson[2]));
+    .then(function(responseJson) {
+      console.log(responseJson)
+    });
     console.log(dataNr);
     console.log(response.items[dataNr].data[0]);
     console.log(response.items[dataNr].href);
+    console.log($(this))
     $(".modal-title").text(response.items[dataNr].data[0].title);
     $(".date-created").text(`${response.items[dataNr].data[0].date_created}`)
     $(".modal-description").text(`${response.items[dataNr].data[0].description}`)
     $(".modal-nasa-id").text(`${response.items[dataNr].data[0].nasa_id}`)
     $(".modal-secondary-creator").text(`${response.items[dataNr].data[0].secondary_creator}`)
-    $(".modal-center").text(`${response.items[dataNr].data[0].center}`)
+    $(".modal-center").text(response.items[dataNr].data[0].center)
   }
 // ERINDS CODE FOR FACTS
 
