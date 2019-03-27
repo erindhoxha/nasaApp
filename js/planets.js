@@ -63,7 +63,7 @@ var selectedImage;
 // PLANET SLIDER - Insert planets from array into slider
 function loadPlanets() {
     for (i = 0; i < planets.length; i++) {
-        $(planetSlider).append('<div class="planet-container" data-planet="' + planets[i].name + '"><img class="planet-image" src="' + planets[i].img + '"><h1>' + planets[i].name + '</h1><div class="view-images"><h2 class="pc' + i + '">View Images</h2></div></div>');
+        $(planetSlider).append('<div class="planet-container" data-planet="' + planets[i].name + '"><img class="planet-image" src="' + planets[i].img + '"><h1>' + planets[i].name + '</h1><div class="view-images pc' + i + '"><h2>View Images</h2></div></div>');
     }
     planetContainer = document.querySelector('.planet-container');
 }
