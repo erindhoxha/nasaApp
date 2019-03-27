@@ -61,6 +61,8 @@ if (searchClicked == "true") {
       })
     });
 }
+
+
 var n = 12;
 $(".see-more").on('click', function() {
     $(".loading-container").fadeIn();
