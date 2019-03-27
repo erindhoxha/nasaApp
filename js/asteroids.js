@@ -1,5 +1,6 @@
 $(function(){
 
+	$(".loading-container").fadeOut();
 
 	var apiKey = 'If1K6QldEkrrugyllIXJL9kjFzPfR3k7KzITvJM6';
 
@@ -59,6 +60,7 @@ $(function(){
 		var urlAsteroidTitles;
 
 		$( ".btn-primary" ).click(function() {
+			$(".loading-container").fadeIn();
 			$(".asteroidDetails").empty();
 			dateFrom = $("#from").val();
 			dateTo = $("#to").val();
@@ -73,14 +75,28 @@ $(function(){
 
 				// when the ajax request is complete do all of these things
 				success: function(res) {
-
+					console.log(res);
 					console.log(res.near_earth_objects[Object.keys(res.near_earth_objects)[0]])
 					// console.log(dateFrom + ' ' + dateTo);
 
 					var asteroids = res.near_earth_objects[Object.keys(res.near_earth_objects)[0]]
-
+					var output = '';
 					asteroids.forEach(function(asteroid) {
-						$('<li>' + '<h4>' + asteroid.name + '</h4>' + '</li>').appendTo('ul.asteroidDetails');
+						// $('<li>' + '<h4>' + asteroid.name + '</h4>' + '</li>').appendTo('ul.asteroidDetails');
+							output += `
+							<div class="col-lg-4 col-6 col-sm-12 col-md-6 mb-3 pb-3">
+							<div class="card" style="width: 18rem;">
+									<div class="card-body" style="background-color:black; color:white">
+										<h5 class="card-title">${asteroid.name}</h5>
+										<p class="card-text">Neo JPL Url: ${asteroid.nasa_jpl_url}.</p>
+										<p class="card-text">Estimated Diameter Max: ${asteroid.estimated_diameter.kilometers.estimated_diameter_max}KM.</p>
+										<p class="card-text">Estimated Diameter Min: ${asteroid.estimated_diameter.kilometers.estimated_diameter_min}KM.</p>
+										<a href="#" class="btn btn-md btn-see-more" style="background-color:#0b3d91; color:white; border:none;">See more! (incoming)</a>
+									</div>
+								</div>
+								</div>`
+							$(output).appendTo('.output');
+							$(".loading-container").fadeOut();
 					});
 
 					

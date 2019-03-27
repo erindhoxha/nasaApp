@@ -20,17 +20,10 @@ body {
   z-index:-1;
 }
 .modal-description {
-    padding: 10px;
-    border: 1px solid white;
-    max-height: 200px;
-    overflow: auto;
-}
-.loading-container-img {
-  width:100px;
-  position:absolute;
-  justify-content: center;
-  align-items:center;
-  z-index:99999;
+      padding: 10px;
+      border: 1px solid white;
+      max-height: 200px;
+      overflow: auto;
 }
 .modal-img {
   width:100%;
@@ -91,28 +84,13 @@ ERINDS STYLES FOR FACTS.HTML
             /* Safari 4.0 - 8.0 */
             animation: spin 0.5s ease-in-out;
     }
-    .st0 {
-      position: relative !important;
-      -webkit-animation: opaque 1s ease-in-out !important;
-      animation: opaque 0.8s ease-out !important;
-    }
-    .st3 {
-    position :relative;
-    -webkit-animation: mymoveRed 0.5s; /* Safari 4.0 - 8.0 */
-    animation: mymoveRed 0.5s ease-in-out;  
 }
 .st0 {
-  position:relative;
-  -webkit-animation: gravity infinite; /* Safari 4.0 - 8.0 */
-  animation: gravity infinite;  
+  position:relative !important;
+  -webkit-animation: opaque 1s ease-in-out !important;
+  animation: opaque 0.8s ease-out !important;
 }
-.st2, .st1 {
-    position :relative;
-    -webkit-animation: mymove 0.5s; /* Safari 4.0 - 8.0 */
-    animation: mymove 0.5s ease-in-out;
-  }
-
-  @keyframes opaque {
+@keyframes opaque {
   from {
     opacity:0;
   }
@@ -143,6 +121,21 @@ ERINDS STYLES FOR FACTS.HTML
         transform:rotate(360deg);
     }
 }
+.st3 {
+    position :relative;
+    -webkit-animation: mymoveRed 0.5s; /* Safari 4.0 - 8.0 */
+    animation: mymoveRed 0.5s ease-in-out;  
+}
+.st0 {
+  position:relative;
+  -webkit-animation: gravity infinite; /* Safari 4.0 - 8.0 */
+  animation: gravity infinite;  
+}
+.st2, .st1 {
+    position :relative;
+    -webkit-animation: mymove 0.5s; /* Safari 4.0 - 8.0 */
+    animation: mymove 0.5s ease-in-out;
+  }
 
 @keyframes mymove {
     from {
@@ -182,10 +175,6 @@ ERINDS STYLES FOR FACTS.HTML
       transform:translateY(0px);
       transform:translateX(0px);    }
 }
-
-}
-
-
 #facts {
     justify-content: center;
     margin-top:50px;
