@@ -21,16 +21,49 @@
 }
 
 .planet-container h1 {
+	text-align: center;
+	font-size: 3.5rem;
+	color: #fff;
 	text-transform: capitalize;
 	opacity: 0;
-	transition: 0.55s ease all;
+}
+
+.view-images {
+	border: 1px solid #999;
+	border-radius: 10px;
+	display: block;
+	margin: auto;
+	width: 12rem;
+	padding: 5px 4px 0px 4px;
+	cursor: pointer;
+	opacity: 0;
+	color: #999;
+	transition: 0.25s ease all;
+}
+
+.view-images:hover {
+	background-color: #999;
+	color: #000;
+}
+
+.view-images:active {
+	background: none;
+	color: #999;
+}
+
+.slick-current .view-images {
+	opacity: 1;
+}
+
+.view-images h2 {
+	text-align: center;
+	font-size: 1.5rem;
 }
 
 .planet-image {
 	width: 60%;
 	display: block;
 	margin: auto;
-	cursor: pointer;
 	filter: brightness(0.4);
 	transform: scale(0.7);
 	transition: 0.55s ease all;
@@ -43,11 +76,6 @@
 
 .slick-current h1 {
 	opacity: 1;
-}
-
-.planet-container h1 {
-	text-align: center;
-	color: #fff;
 }
 
 .slick-prev, .slick-next {
@@ -159,13 +187,11 @@
 	border: 1.5px solid #666;
 	border-radius: 5px;
 	overflow: hidden;
-	filter: brightness(1);
+	cursor: pointer;
 	transition: 0.08s ease all;
 }
 
 .modal-card:hover {
-	cursor: pointer;
-	filter: brightness(1);
 	border: 1.5px solid #ccc;
 }
 
@@ -298,6 +324,14 @@
 
 .hidden-image-overlay {
 	width: 0;
+}
+
+.disable-selection {
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* Internet Explorer */
+  	-khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
+ 	-webkit-user-select: none; /* Chrome, Safari, and Opera */
+ 	-webkit-touch-callout: none; /* Disable Android and iOS callouts*/
 }
 
 @media only screen and (max-width: 1024px) {
